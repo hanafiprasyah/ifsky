@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import HeaderLogo from "../../public/images/ifsky/ifskyaja.svg";
+import HeaderLogo from "../../public/images/ifsky/ifskyaja2.svg";
 import Product1 from "../../public/images/product4.jpg";
 import Product2 from "../../public/images/product5.jpg";
 import Product3 from "../../public/images/product6.jpg";
@@ -24,7 +24,7 @@ function HeaderImpl() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 bg-white dark:bg-neutral-900">
+    <header className="sticky top-0 pt-2 pb-2 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 bg-white dark:bg-neutral-900">
       <div className="max-w-[85rem] flex flex-wrap justify-between md:grid md:grid-cols-5 basis-full items-center w-full mx-auto py-[11px] md:py-0 px-4 sm:px-6 lg:px-8">
         <div className="md:col-span-1 order-1">
           <div className="flex items-center gap-x-1">
