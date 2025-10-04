@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  applicationName: "IFSKY",
   title: {
     default: "IFSKY",
     template: "%s | IFSKY",
   },
   description: "IFSKY Official Landing Page",
-  alternates: { canonical: "/about" },
   openGraph: {
     title: "About Us | IFSKY",
     description: "Profil dan misi IFSKY Parfume & Fragrance.",
@@ -27,6 +27,18 @@ export const metadata = {
     siteName: "IFSKY",
     type: "website",
   },
+  generator: "Next.js",
+  keywords: [
+    "IFSKY",
+    "parfum",
+    "fragrance",
+    "parfum pria",
+    "parfum wanita",
+    "long lasting",
+    "eau de parfum",
+  ],
+  authors: [{ name: "IFSKY" }],
+  icons: { icon: "/favicon.ico" },
 };
 
 export default function RootLayout({ children }) {

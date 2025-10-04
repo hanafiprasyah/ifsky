@@ -1,5 +1,6 @@
 export const metadata = {
   title: "Products",
+  alternates: { canonical: "/products" },
 };
 
 export default function ProductsPage() {
