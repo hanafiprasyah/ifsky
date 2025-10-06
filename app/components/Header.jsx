@@ -17,10 +17,21 @@ function HeaderImpl() {
   const isAbout = pathname.startsWith("/about");
   const isProducts = pathname.startsWith("/products");
 
+  // Close sidebar overlay (mobile) after navigation or menu click
+  const closeSidebar = () => {
+    try {
+      window.HSOverlay?.close?.("#hs-pro-dmh");
+    } catch {}
+  };
+
   // Opsional: jika pakai komponen Preline re-scan setelah route change
   useEffect(() => {
     // jalan hanya ketika path berubah
-    queueMicrotask(() => window.HSStaticMethods?.autoInit?.());
+    // re-scan Preline dan tutup sidebar kalau sedang terbuka (mobile)
+    queueMicrotask(() => {
+      window.HSStaticMethods?.autoInit?.();
+      window.HSOverlay?.close?.("#hs-pro-dmh");
+    });
   }, [pathname]);
 
   return (
@@ -98,6 +109,7 @@ function HeaderImpl() {
                 <h3 className="font-medium text-gray-800 dark:text-neutral-200">
                   Menu
                 </h3>
+                {/* Close Button */}
                 <button
                   type="button"
                   className="py-1.5 px-2 inline-flex justify-center items-center gap-x-1 rounded-full border border-gray-200 text-xs text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:text-neutral-200 dark:focus:bg-neutral-700"
@@ -131,6 +143,8 @@ function HeaderImpl() {
                   <Link
                     id="hs-pro-shnnd2"
                     type="button"
+                    onClick={closeSidebar}
+                    data-hs-overlay="#hs-pro-dmh"
                     href={"/"}
                     aria-current={isHome ? "page" : undefined}
                     className={cx(
@@ -155,6 +169,8 @@ function HeaderImpl() {
                   <Link
                     id="hs-pro-shnnd6"
                     type="button"
+                    onClick={closeSidebar}
+                    data-hs-overlay="#hs-pro-dmh"
                     href={"/about"}
                     aria-current={isAbout ? "page" : undefined}
                     className={cx(
@@ -262,6 +278,8 @@ function HeaderImpl() {
                           <Link
                             className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-indigo-600 focus:outline-hidden focus:text-indigo-600 dark:text-neutral-200 dark:hover:text-indigo-400 dark:focus:text-indigo-400"
                             href="/products"
+                            onClick={closeSidebar}
+                            data-hs-overlay="#hs-pro-dmh"
                           >
                             Learn more
                           </Link>
