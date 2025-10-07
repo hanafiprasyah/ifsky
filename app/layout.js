@@ -2,6 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import PrelineScriptWrapper from "@/app/components/PrelineScriptWrapper";
 import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -47,13 +48,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <section id="header" className="dark:bg-neutral-900">
-          <Header />
-        </section>
-        <main className="dark:bg-neutral-900 h-screen">{children}</main>
-        <footer className="bg-neutral-900 py-6 text-center text-sm text-neutral-600">
-          © {new Date().getFullYear()} IFSKY
-        </footer>
+        <Header />
+        <main className="h-fit bg-neutral-100">{children}</main>
+        <Footer />
       </body>
 
       <PrelineScriptWrapper />
