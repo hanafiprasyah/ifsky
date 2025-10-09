@@ -35,19 +35,20 @@ function HeaderImpl() {
   }, [pathname]);
 
   return (
-    <header className="sticky top-0 pt-2 pb-2 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 bg-white dark:bg-neutral-900">
+    <header className="sticky top-0 pt-2 pb-2 inset-x-0 flex flex-wrap md:justify-start md:flex-nowrap z-50 bg-neutral-100">
       <div className="max-w-[85rem] flex flex-wrap justify-between md:grid md:grid-cols-5 basis-full items-center w-full mx-auto py-[11px] md:py-0 px-4 sm:px-6 lg:px-8">
         <div className="md:col-span-1 order-1">
           <div className="flex items-center gap-x-1">
             {/* Logo */}
-            <Image
+            {/* <Image
               className="flex-none select-none pointer-events-none rounded-md text-xl inline-block font-semibold focus:outline-hidden focus:opacity-80"
               src={HeaderLogo}
               aria-label="ifsky_logo"
               alt="ifsky_logo"
-              width={100}
-              height={10}
-            />
+              width={120}
+              height={120}
+              priority
+            /> */}
             {/* End Logo */}
           </div>
         </div>
@@ -56,7 +57,7 @@ function HeaderImpl() {
             {/* Collapse Mobile Button Trigger */}
             <button
               type="button"
-              className="w-7 h-9.5 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+              className="w-7 h-9.5 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-neutral-100 text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50"
               id="hs-pro-dmh-collapse"
               aria-haspopup="dialog"
               aria-expanded="false"
@@ -93,26 +94,23 @@ function HeaderImpl() {
             id="hs-pro-dmh"
             className="hs-overlay hs-overlay-open:translate-x-0 [--auto-close:md]
                           -translate-x-full md:translate-none transition-all duration-300 transform
-                          size-full sm:w-96 bg-white
+                          size-full sm:w-96 bg-neutral-100
                           hidden
                           fixed top-0 start-0 z-60
-                          md:static md:block md:h-auto md:w-full md:transition-none md:transform-none md:z-40
-                          dark:bg-neutral-800 md:dark:bg-neutral-900"
+                          md:static md:block md:h-auto md:w-full md:transition-none md:transform-none md:z-40"
             role="dialog"
             tabIndex={-1}
             aria-label="Sidebar"
             data-hs-overlay-close-on-resize=""
           >
-            <div className="overflow-hidden overflow-y-auto h-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-gray-100 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-track]:bg-neutral-700 dark:[&::-webkit-scrollbar-thumb]:bg-neutral-500">
+            <div className="overflow-hidden overflow-y-auto h-full [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-neutral-100 [&::-webkit-scrollbar-thumb]:bg-neutral-300">
               {/* Header */}
-              <div className="py-3 px-6 md:hidden flex justify-between items-center border-b border-gray-200 dark:border-neutral-700">
-                <h3 className="font-medium text-gray-800 dark:text-neutral-200">
-                  Menu
-                </h3>
+              <div className="py-3 px-6 md:hidden flex justify-between items-center">
+                <h3 className="font-medium text-gray-800">Menu</h3>
                 {/* Close Button */}
                 <button
                   type="button"
-                  className="py-1.5 px-2 inline-flex justify-center items-center gap-x-1 rounded-full border border-gray-200 text-xs text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:hover:bg-neutral-700 dark:text-neutral-200 dark:focus:bg-neutral-700"
+                  className="py-1.5 px-2 inline-flex justify-center items-center gap-x-1 rounded-full border border-gray-200 text-xs text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 disabled:opacity-50 disabled:pointer-events-none"
                   aria-label="Close"
                   data-hs-overlay="#hs-pro-dmh"
                 >
@@ -150,8 +148,8 @@ function HeaderImpl() {
                     className={cx(
                       "hs-dropdown-toggle transition-all duration-300 ease-in-out pointer-events-auto cursor-pointer py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center text-sm text-start rounded-lg underline-offset-4 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden",
                       isHome
-                        ? "text-white hover:text-neutral-300 hover:no-underline dark:text-neutral-100"
-                        : "text-gray-800 dark:text-neutral-600 hover:text-neutral-300"
+                        ? "text-gray-800 underline hover:text-neutral-500"
+                        : "text-gray-500 hover:text-gray-800"
                     )}
                     aria-haspopup="menu"
                     aria-expanded="false"
@@ -176,8 +174,8 @@ function HeaderImpl() {
                     className={cx(
                       "hs-dropdown-toggle transition-all duration-300 ease-in-out pointer-events-auto cursor-pointer py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center text-sm text-start rounded-lg underline-offset-4 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden",
                       isAbout
-                        ? "text-white hover:text-neutral-300 hover:no-underline dark:text-neutral-100"
-                        : "text-gray-800 dark:text-neutral-600 hover:text-neutral-300"
+                        ? "text-gray-800 underline hover:text-neutral-500"
+                        : "text-gray-500 hover:text-gray-800"
                     )}
                     aria-haspopup="menu"
                     aria-expanded="false"
@@ -187,7 +185,7 @@ function HeaderImpl() {
                       About Us
                       <span className="absolute -top-1 -end-2">
                         <span className="relative flex">
-                          <span className="animate-ping absolute inline-flex size-full rounded-full bg-indigo-400 opacity-75 dark:bg-indigo-600" />
+                          <span className="animate-ping absolute inline-flex size-full rounded-full bg-indigo-400 opacity-75" />
                           <span className="relative inline-flex rounded-full size-2 bg-indigo-500" />
                           <span className="sr-only">Current</span>
                         </span>
@@ -207,8 +205,8 @@ function HeaderImpl() {
                     className={cx(
                       "hs-dropdown-toggle transition-all duration-300 ease-in-out pointer-events-auto cursor-pointer py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center text-sm text-start rounded-lg underline-offset-4 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden",
                       isProducts
-                        ? "text-white hover:text-neutral-300 hover:no-underline dark:text-neutral-100"
-                        : "text-gray-800 dark:text-neutral-600 hover:text-neutral-300"
+                        ? "text-gray-800 underline hover:text-neutral-500"
+                        : "text-gray-500 hover:text-gray-800"
                     )}
                     aria-haspopup="menu"
                     aria-expanded="false"
@@ -233,7 +231,7 @@ function HeaderImpl() {
                   {/* End Link Button */}
                   {/* Dropdown Menu */}
                   <div
-                    className="hs-dropdown-menu hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 top-full start-0 min-w-60 md:bg-white md:border-t md:border-gray-200 md:rounded-b-xl md:shadow-xl before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:dark:bg-neutral-900 md:dark:border-neutral-700"
+                    className="hs-dropdown-menu hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 top-full start-0 min-w-60 md:bg-neutral-100 md:border-t md:border-gray-200 md:rounded-b-xl md:shadow-xl before:absolute before:-top-4 before:start-0 before:w-full before:h-5"
                     role="menu"
                     aria-orientation="vertical"
                     aria-labelledby="hs-pro-shnnd4"
@@ -241,42 +239,48 @@ function HeaderImpl() {
                     <div className="max-w-[85rem] w-full mx-auto py-2 md:py-4 lg:py-10 md:px-6 lg:px-8">
                       <div className="max-w-lg w-full mx-auto text-center">
                         <p className="mb-2">
-                          <span className="py-1 px-2.5 pointer-events-none inline-block border border-gray-500 text-gray-800 text-xs rounded-full dark:border-neutral-500 dark:text-neutral-200">
+                          <span className="py-1 px-2.5 pointer-events-none inline-block border border-gray-500 text-gray-800 text-xs rounded-full">
                             Coming soon
                           </span>
                         </p>
-                        <p className="mb-5 font-medium text-lg pointer-events-none text-gray-800 dark:text-neutral-200">
+                        <p className="mb-5 font-medium text-lg pointer-events-none text-gray-800">
                           Fragrance Store
                         </p>
                         <div className="grid grid-cols-3 gap-2 sm:gap-3">
-                          <Image
-                            className="shrink-0 w-full h-24 md:h-52 object-cover rounded-xl"
-                            src={Product1}
-                            alt="Banner Image"
-                            width={100}
-                            height={100}
-                          />
-                          <Image
-                            className="shrink-0 w-full h-24 md:h-52 object-cover rounded-xl"
-                            src={Product2}
-                            alt="Banner Image"
-                            width={100}
-                            height={100}
-                          />
-                          <Image
-                            className="shrink-0 w-full h-24 md:h-52 object-cover rounded-xl"
-                            src={Product3}
-                            alt="Banner Image"
-                            width={100}
-                            height={100}
-                          />
+                          <div className="group relative rounded-xl overflow-hidden">
+                            <Image
+                              className="shrink-0 w-full h-24 md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                              src={Product1}
+                              alt="Banner Image"
+                              width="auto"
+                              height="auto"
+                            />
+                          </div>
+                          <div className="group relative rounded-xl overflow-hidden">
+                            <Image
+                              className="shrink-0 w-full h-24 md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                              src={Product2}
+                              alt="Banner Image"
+                              width="auto"
+                              height="auto"
+                            />
+                          </div>
+                          <div className="group relative rounded-xl overflow-hidden">
+                            <Image
+                              className="shrink-0 w-full h-24 md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                              src={Product3}
+                              alt="Banner Image"
+                              width="auto"
+                              height="auto"
+                            />
+                          </div>
                         </div>
-                        <p className="mt-5 text-gray-800 dark:text-neutral-200">
+                        <p className="mt-5 text-gray-800">
                           In collaboration with INFINITY!
                         </p>
                         <div className="mt-5">
                           <Link
-                            className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-indigo-600 focus:outline-hidden focus:text-indigo-600 dark:text-neutral-200 dark:hover:text-indigo-400 dark:focus:text-indigo-400"
+                            className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-indigo-600 focus:outline-hidden focus:text-indigo-600"
                             href="/products"
                             onClick={closeSidebar}
                             data-hs-overlay="#hs-pro-dmh"
