@@ -9,7 +9,7 @@ import Model3 from "../../public/images/model3.jpg";
 export default function HeroHome() {
   return (
     <div className="bg-neutral-100">
-      <div className="max-w-5xl mx-auto px-4 xl:px-0 pt-24 lg:pt-32 pb-12 md:pb-24">
+      <div className="max-w-5xl mx-auto px-4 xl:px-0 pt-12 lg:pt-22 pb-16 md:pb-24">
         <h1 className="font-semibold text-neutral-900 text-5xl md:text-6xl">
           <span className="text-cyan-700">IFSKY Fragrance</span> — bagian kecil
           dari langit.
@@ -29,7 +29,7 @@ export default function HeroHome() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3">
           <div>
             <Image
-              className="size-full object-cover pointer-events-none rounded-xl h-96"
+              className="size-full object-cover pointer-events-none rounded-tr-xl rounded-br-xl h-96"
               src={Model2}
               alt="IFSKY Fragrance Matahari"
               width="auto"
@@ -59,7 +59,7 @@ export default function HeroHome() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3">
           <div className="sm:order-2">
             <Image
-              className="size-full object-cover pointer-events-none rounded-xl"
+              className="size-full object-cover pointer-events-none rounded-tl-xl rounded-bl-xl"
               src={Model1}
               alt="IFSKY Fragrance Bulan"
               width="auto"
@@ -89,7 +89,7 @@ export default function HeroHome() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-3">
           <div>
             <Image
-              className="size-full object-cover pointer-events-none rounded-xl"
+              className="size-full object-cover pointer-events-none rounded-tr-xl rounded-br-xl"
               src={Model3}
               alt="IFSKY Fragrance Langit"
               width="auto"

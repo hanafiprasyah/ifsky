@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import HeaderLogo from "../../public/images/ifsky/ifskyaja2.svg";
+// import HeaderLogo from "../../public/images/ifsky/ifskyaja2.svg";
 import Product1 from "../../public/images/product4.jpg";
 import Product2 from "../../public/images/product5.jpg";
 import Product3 from "../../public/images/product6.jpg";
@@ -17,14 +17,13 @@ function HeaderImpl() {
   const isAbout = pathname.startsWith("/about");
   const isProducts = pathname.startsWith("/products");
 
-  // Close sidebar overlay (mobile) after navigation or menu click
   const closeSidebar = () => {
     try {
       window.HSOverlay?.close?.("#hs-pro-dmh");
     } catch {}
   };
 
-  // Opsional: jika pakai komponen Preline re-scan setelah route change
+  // Preline re-scan setelah route change
   useEffect(() => {
     // jalan hanya ketika path berubah
     // re-scan Preline dan tutup sidebar kalau sedang terbuka (mobile)
@@ -155,7 +154,7 @@ function HeaderImpl() {
                     aria-expanded="false"
                     aria-label="Dropdown"
                   >
-                    <span className="relative">Home</span>
+                    <span className="relative">Beranda</span>
                   </Link>
                   {/* End Link Button */}
                 </div>
@@ -182,11 +181,11 @@ function HeaderImpl() {
                     aria-label="Dropdown"
                   >
                     <span className="relative">
-                      About Us
+                      Tentang IFSKY
                       <span className="absolute -top-1 -end-2">
                         <span className="relative flex">
-                          <span className="animate-ping absolute inline-flex size-full rounded-full bg-indigo-400 opacity-75" />
-                          <span className="relative inline-flex rounded-full size-2 bg-indigo-500" />
+                          <span className="animate-ping absolute inline-flex size-full rounded-full bg-cyan-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full size-2 bg-cyan-500" />
                           <span className="sr-only">Current</span>
                         </span>
                       </span>
@@ -212,7 +211,7 @@ function HeaderImpl() {
                     aria-expanded="false"
                     aria-label="Dropdown"
                   >
-                    Our Products
+                    Produk
                     <svg
                       className="md:hidden hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 ms-auto md:ms-2 shrink-0 size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -240,11 +239,11 @@ function HeaderImpl() {
                       <div className="max-w-lg w-full mx-auto text-center">
                         <p className="mb-2">
                           <span className="py-1 px-2.5 pointer-events-none inline-block border border-gray-500 text-gray-800 text-xs rounded-full">
-                            Coming soon
+                            Segera Hadir
                           </span>
                         </p>
                         <p className="mb-5 font-medium text-lg pointer-events-none text-gray-800">
-                          Fragrance Store
+                          IFSKY Fragrance
                         </p>
                         <div className="grid grid-cols-3 gap-2 sm:gap-3">
                           <div className="group relative rounded-xl overflow-hidden">
@@ -275,10 +274,10 @@ function HeaderImpl() {
                             />
                           </div>
                         </div>
-                        <p className="mt-5 text-gray-800">
-                          In collaboration with INFINITY!
+                        <p className="mt-5 text-neutral-600">
+                          Bekerja sama dengan <strong>INFINITY Labs!</strong>
                         </p>
-                        <div className="mt-5">
+                        {/* <div className="mt-5">
                           <Link
                             className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-indigo-600 focus:outline-hidden focus:text-indigo-600"
                             href="/products"
@@ -287,7 +286,7 @@ function HeaderImpl() {
                           >
                             Learn more
                           </Link>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </div>

@@ -23,7 +23,7 @@ export default function SliderHome() {
               {/* Slide */}
               <div className="h-120 md:h-160 relative">
                 <Image
-                  className="absolute inset-0 size-full object-cover rounded-xl"
+                  className="absolute inset-0 size-full pointer-events-none object-cover rounded-xl"
                   src={Product1}
                   width="auto"
                   height="auto"
@@ -49,7 +49,7 @@ export default function SliderHome() {
               {/* Slide */}
               <div className="h-120 md:h-160 relative">
                 <Image
-                  className="absolute inset-0 size-full object-cover rounded-xl"
+                  className="absolute inset-0 pointer-events-none size-full object-cover rounded-xl"
                   src={Product2}
                   width="auto"
                   height="auto"
@@ -75,7 +75,7 @@ export default function SliderHome() {
               {/* Slide */}
               <div className="h-120 md:h-160 relative">
                 <Image
-                  className="absolute inset-0 size-full object-cover rounded-xl"
+                  className="absolute inset-0 pointer-events-none size-full object-cover rounded-xl"
                   src={Product3}
                   width="auto"
                   height="auto"

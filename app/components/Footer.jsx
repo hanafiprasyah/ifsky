@@ -42,8 +42,12 @@ export default function Footer() {
               <>
                 <li>
                   <Link
-                    className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
+                    className="text-sm transition-all duration-300 cursor-not-allowed ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
                     href={""}
+                    onClick={(e) => {
+                      e.preventDefault();
+                    }}
+                    aria-disabled="true"
                   >
                     Lokasi Toko
                   </Link>
@@ -61,7 +65,7 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
-                    href={""}
+                    href={"/career"}
                   >
                     Karir
                   </Link>
@@ -69,7 +73,10 @@ export default function Footer() {
                 <li>
                   <Link
                     className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
-                    href={""}
+                    href={
+                      "https://wa.me/+6282364459298?text=Halo%20IFSKY!%20Saya%20tertarik%20untuk%20bekerjasama%20dengan%20tim%20anda."
+                    }
+                    target="_blank"
                   >
                     Kerjasama Bisnis
                   </Link>
@@ -88,7 +95,8 @@ export default function Footer() {
                 <>
                   <Link
                     className="relative inline-block text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
-                    href={""}
+                    href={"https://www.instagram.com/ifsky.id"}
+                    target="_blank"
                   >
                     <svg
                       className="shrink-0 size-4"
@@ -110,7 +118,8 @@ export default function Footer() {
                   </Link>
                   <Link
                     className="relative inline-block text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
-                    href={""}
+                    href={"https://www.tiktok.com/@ifsky.id"}
+                    target="_blank"
                   >
                     <svg
                       className="shrink-0 size-4"
@@ -144,22 +153,22 @@ export default function Footer() {
             <li className="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2">
               © 2025 INFINITY Labs.
             </li>
-            <li className="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2">
+            {/* <li className="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2">
               <Link
                 className="text-xs transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
                 href={""}
               >
                 Persetujuan
               </Link>
-            </li>
-            <li className="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2">
+            </li> */}
+            {/* <li className="inline-flex items-center relative text-xs text-gray-500 pe-3.5 last:pe-0 last:after:hidden after:absolute after:top-1/2 after:end-0 after:inline-block after:size-[3px] after:bg-gray-400 after:rounded-full after:-translate-y-1/2">
               <Link
                 className="text-xs transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
                 href={""}
               >
                 Privasi Pengguna
               </Link>
-            </li>
+            </li> */}
           </>
         </ul>
         {/* End List */}

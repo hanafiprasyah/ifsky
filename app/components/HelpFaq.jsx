@@ -5,8 +5,8 @@ import Script from "next/script";
 import Link from "next/link";
 import Image from "next/image";
 import TrackOrderImage from "../../public/images/faq2.jpg";
-import SealProductImage from "../../public/images/faq1.jpg";
-import TipsImage from "../../public/images/faq3.jpg";
+import SealProductImage from "../../public/images/faq3.jpg";
+import TipsImage from "../../public/images/faq1.jpg";
 
 export default function FaqComponent() {
   return (
@@ -325,7 +325,7 @@ export default function FaqComponent() {
               height="auto"
             />
 
-            <div className="absolute bottom-0 inset-x-0 after:absolute after:inset-0 after:size-full after:z-1 after:rounded-xl after:bg-linear-to-t after:from-emerald-600 after:to-transparent">
+            <div className="absolute bottom-0 inset-x-0 after:absolute after:inset-0 after:size-full after:z-1 after:rounded-xl after:bg-linear-to-t after:from-amber-600 after:to-transparent">
               <div className="p-4 md:p-6 relative z-10 flex flex-col justify-end gap-3">
                 <div className="mt-1.5 md:mt-3">
                   <blockquote className="md:text-xl text-white">
@@ -354,7 +354,7 @@ export default function FaqComponent() {
               height="auto"
             />
 
-            <div className="absolute bottom-0 inset-x-0 after:absolute after:inset-0 after:size-full after:z-1 after:rounded-xl after:bg-linear-to-t after:from-red-600 after:to-transparent">
+            <div className="absolute bottom-0 inset-x-0 after:absolute after:inset-0 after:size-full after:z-1 after:rounded-xl after:bg-linear-to-t after:from-emerald-600 after:to-transparent">
               <div className="p-4 md:p-6 relative z-10 flex flex-col justify-end gap-3">
                 <div className="mt-1.5 md:mt-3">
                   <blockquote className="md:text-xl text-white">

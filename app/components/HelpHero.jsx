@@ -1,9 +1,27 @@
 "use client";
 
-import React from "react";
+import React, { useState, useRef } from "react";
 import Banner from "../../public/images/helpbanner2.jpg";
 
 export default function HelpHero() {
+  const [q, setQ] = useState("");
+  const inputRef = useRef(null);
+  const WA_NUMBER = "+6282364459298";
+
+  const goWhatsApp = () => {
+    const msg = q.trim();
+    if (!msg) return;
+    const url = `https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(msg)}`;
+    window.location.href = url;
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      goWhatsApp();
+    }
+  };
+
   return (
     <div
       className="flex flex-col justify-center items-center bg-cover bg-center bg-no-repeat"
@@ -36,17 +54,26 @@ export default function HelpHero() {
             </svg>
           </div>
           <input
+            ref={inputRef}
             type="text"
             className="py-3 md:py-4 pe-4 ps-10 block w-full text-gray-700 bg-white border-transparent rounded-lg sm:text-sm placeholder:text-gray-400 focus:outline-hidden focus:border-transparent focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
             placeholder="Apa yang dapat kami bantu?"
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            onKeyDown={onKeyDown}
           />
           <div className="lg:hidden absolute inset-y-0 end-0 flex items-center z-20 pe-1">
             <button
               type="button"
+              onClick={() => {
+                setQ("");
+                inputRef.current?.focus();
+              }}
               className="inline-flex shrink-0 justify-center items-center size-6 rounded-full text-gray-500 hover:text-blue-600 focus:outline-hidden focus:text-blue-600"
-              aria-label="Close"
+              aria-label="Hapus"
+              title="Hapus"
             >
-              <span className="sr-only">Close</span>
+              <span className="sr-only">Hapus</span>
               <svg
                 className="shrink-0 size-4"
                 xmlns="http://www.w3.org/2000/svg"

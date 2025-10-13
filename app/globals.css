@@ -2,6 +2,7 @@
 
 @import "preline/variants.css";
 @source "../node_modules/preline/dist/*.js";
+@import "toastify-js/src/toastify.css";
 
 :root {
   --background: #ffffff;
