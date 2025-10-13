@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://ifsky.id"),
   applicationName: "IFSKY",
   title: {
     default: "IFSKY",
