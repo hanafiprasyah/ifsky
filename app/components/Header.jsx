@@ -248,27 +248,27 @@ function HeaderImpl() {
                         <div className="grid grid-cols-3 gap-2 sm:gap-3">
                           <div className="group relative rounded-xl overflow-hidden">
                             <Image
-                              className="shrink-0 w-full h-24 md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                              className="shrink-0 w-full h-24 pointer-events-none md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
                               src={Product1}
-                              alt="Banner Image"
+                              alt="IFSKY Matahari"
                               width="auto"
                               height="auto"
                             />
                           </div>
                           <div className="group relative rounded-xl overflow-hidden">
                             <Image
-                              className="shrink-0 w-full h-24 md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                              className="shrink-0 w-full h-24 pointer-events-none md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
                               src={Product2}
-                              alt="Banner Image"
+                              alt="IFSKY Bulan"
                               width="auto"
                               height="auto"
                             />
                           </div>
                           <div className="group relative rounded-xl overflow-hidden">
                             <Image
-                              className="shrink-0 w-full h-24 md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
+                              className="shrink-0 w-full h-24 pointer-events-none md:h-52 object-cover transform-gpu transition-transform duration-300 ease-out group-hover:scale-110 will-change-transform"
                               src={Product3}
-                              alt="Banner Image"
+                              alt="IFSKY Langit"
                               width="auto"
                               height="auto"
                             />
@@ -277,22 +277,42 @@ function HeaderImpl() {
                         <p className="mt-5 text-neutral-600">
                           Bekerja sama dengan <strong>INFINITY Labs!</strong>
                         </p>
-                        {/* <div className="mt-5">
+                        <div className="mt-5">
                           <Link
-                            className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-indigo-600 focus:outline-hidden focus:text-indigo-600"
+                            className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-sky-600 focus:outline-hidden focus:text-sky-600"
                             href="/products"
                             onClick={closeSidebar}
                             data-hs-overlay="#hs-pro-dmh"
                           >
-                            Learn more
+                            Lihat produknya
                           </Link>
-                        </div> */}
+                        </div>
                       </div>
                     </div>
                   </div>
                   {/* End Dropdown Menu */}
                 </div>
                 {/* End Products Dropdown Link */}
+
+                {/* Skydreamer Zone (disabled) */}
+                <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block">
+                  <button
+                    id="hs-pro-shnnd-sky"
+                    type="button"
+                    disabled
+                    aria-disabled="true"
+                    className="hs-dropdown-toggle transition-all duration-300 ease-in-out cursor-not-allowed py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center gap-x-2 text-sm text-start rounded-lg underline-offset-4 text-gray-400 disabled:opacity-60 disabled:pointer-events-none focus:outline-hidden"
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    aria-label="Skydreamer Zone (segera hadir)"
+                  >
+                    <span className="relative">Skydreamer Zone</span>
+                    <span className="inline-flex items-center rounded-full bg-red-600 text-white text-[10px] font-semibold leading-none px-2 py-0.5">
+                      SOON
+                    </span>
+                  </button>
+                </div>
+                {/* End Skydreamer Zone */}
               </div>
             </div>
           </div>

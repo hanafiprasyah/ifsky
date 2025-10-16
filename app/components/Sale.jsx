@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function SaleHome() {
   return (
-    <div className="pt-10 pb-8 lg:pb-2 w-full max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto bg-neutral-100">
+    <div className="pt-6 lg:pt-4 pb-8 lg:pb-2 w-full max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto bg-neutral-100">
       <div className="h-72 sm:h-96 xl:h-120 relative">
         <Image
           className="bg-neutral-100 pointer-events-none absolute inset-0 size-full object-cover rounded-xl"

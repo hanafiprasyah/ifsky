@@ -3,6 +3,9 @@
 import Image from "next/image";
 import React from "react";
 import Product3 from "../../../public/images/product6.jpg";
+import ShopeeLogo from "../../../public/logos/shopee.png";
+import TiktokLogo from "../../../public/logos/tiktok.png";
+import TokopediaLogo from "../../../public/logos/tokopedia.png";
 import Link from "next/link";
 
 export default function LangitModal() {
@@ -87,7 +90,7 @@ export default function LangitModal() {
                       Karakter: Segar, luas, visioner.
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Rekomendasi: Wanita
+                      Rekomendasi: Pria dan Wanita (Unisex)
                     </p>
                     <p className="text-xs font-medium text-gray-600">
                       Isi: 50 ml
@@ -240,17 +243,64 @@ export default function LangitModal() {
                   </div>
                 </div>
                 <div className="px-4 sm:px-6 lg:px-8">
-                  {/* Button Group */}
-                  <div className="flex gap-3">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 md:gap-3">
                     <Link
-                      href={`https://wa.me/+6289679632323?text=Halo%20IFSKY.%20Saya%20tertarik%20dengan%20produk%20IFSKY%20lebih%20tepatnya%20varian%20Langit%20Scene.`}
+                      href={"https://shopee.co.id/ifsky.id"}
                       target="_blank"
-                      className="py-3 px-4 cursor-pointer transition-all duration-300 ease-in-out w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-gray-800 text-white hover:bg-gray-900 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-900 "
+                      rel="noopener noreferrer"
+                      className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
+                      aria-label="Beli di Shopee"
+                      title="Beli di Shopee"
                     >
-                      Pesan sekarang
+                      {/* Shopee */}
+
+                      <Image
+                        className="size-4"
+                        src={ShopeeLogo}
+                        alt="shopee"
+                      ></Image>
+
+                      <span className="text-neutral-700">Shopee</span>
+                    </Link>
+
+                    <Link
+                      href={"https://www.tiktok.com/@ifsky.id"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
+                      aria-label="Beli di Tiktok"
+                      title="Beli di Tiktok"
+                    >
+                      {/* TiktokShop */}
+
+                      <Image
+                        className="size-4"
+                        src={TiktokLogo}
+                        alt="tiktok"
+                      ></Image>
+
+                      <span className="text-neutral-700">Tiktok</span>
+                    </Link>
+
+                    <Link
+                      href={"https://www.tokopedia.com/"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
+                      aria-label="Beli di Tokopedia"
+                      title="Beli di Tokopedia"
+                    >
+                      {/* Tokopedia */}
+
+                      <Image
+                        className="size-4"
+                        src={TokopediaLogo}
+                        alt="Tokopedia"
+                      ></Image>
+
+                      <span className="text-neutral-700">Tokopedia</span>
                     </Link>
                   </div>
-                  {/* End Button Group */}
                 </div>
               </div>
             </div>

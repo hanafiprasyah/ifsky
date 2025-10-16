@@ -1,3 +1,8 @@
+export const metadata = {
+  title: "Career",
+  alternates: { canonical: "/career" },
+};
+
 import { createClient } from "@supabase/supabase-js";
 
 export const revalidate = 3600; // revalidate listing setiap 1 jam
