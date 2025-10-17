@@ -1,14 +1,32 @@
 "use client";
 
 import React from "react";
+import { motion } from "motion/react";
 
 export default function IconSectionHome() {
+  const container = {
+    hidden: { opacity: 0 },
+    show: { opacity: 1, transition: { staggerChildren: 0.1 } },
+  };
+  const item = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" } },
+  };
   return (
     <div className="py-14 lg:py-20 w-full max-w-[85rem] px-4 sm:px-6 lg:px-8 mx-auto bg-neutral-100">
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-4">
+      <motion.div
+        className="grid grid-cols-1 md:grid-cols-3 gap-y-10 gap-x-4"
+        variants={container}
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.4 }}
+      >
         {/* Icon Block */}
-        <div className="max-w-xs lg:max-w-full mx-auto text-center lg:px-4 xl:px-10">
+        <motion.div
+          className="max-w-xs lg:max-w-full mx-auto text-center lg:px-4 xl:px-10"
+          variants={item}
+        >
           <svg
             className="shrink-0 size-7 mx-auto text-gray-800"
             xmlns="http://www.w3.org/2000/svg"
@@ -29,10 +47,13 @@ export default function IconSectionHome() {
             Berbelanja dengan percaya diri menggunakan sistem pembayaran
             terenkripsi kami yang melindungi informasi sensitif Anda.
           </p>
-        </div>
+        </motion.div>
         {/* End Icon Block */}
         {/* Icon Block */}
-        <div className="max-w-xs lg:max-w-full mx-auto text-center lg:px-4 xl:px-10">
+        <motion.div
+          className="max-w-xs lg:max-w-full mx-auto text-center lg:px-4 xl:px-10"
+          variants={item}
+        >
           <svg
             className="shrink-0 size-7 mx-auto text-gray-800"
             xmlns="http://www.w3.org/2000/svg"
@@ -56,10 +77,13 @@ export default function IconSectionHome() {
             Nikmati pengiriman gratis untuk semua pesanan, tanpa minimum
             pembelian.
           </p>
-        </div>
+        </motion.div>
         {/* End Icon Block */}
         {/* Icon Block */}
-        <div className="max-w-xs lg:max-w-full mx-auto text-center lg:px-4 xl:px-10">
+        <motion.div
+          className="max-w-xs lg:max-w-full mx-auto text-center lg:px-4 xl:px-10"
+          variants={item}
+        >
           <svg
             className="shrink-0 size-7 mx-auto text-gray-800"
             xmlns="http://www.w3.org/2000/svg"
@@ -80,9 +104,9 @@ export default function IconSectionHome() {
             Tidak puas? Kembalikan barangnya dalam waktu 30 hari setelah
             pembelian untuk mendapatkan pengembalian dana penuh atau penukaran.
           </p>
-        </div>
+        </motion.div>
         {/* End Icon Block */}
-      </div>
+      </motion.div>
       {/* End Grid */}
     </div>
   );

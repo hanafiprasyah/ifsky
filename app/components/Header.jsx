@@ -306,9 +306,9 @@ function HeaderImpl() {
                     aria-expanded="false"
                     aria-label="Skydreamer Zone (segera hadir)"
                   >
-                    <span className="relative">Skydreamer Zone</span>
+                    <span className="relative">Skydreamer</span>
                     <span className="inline-flex items-center rounded-full bg-red-600 text-white text-[10px] font-semibold leading-none px-2 py-0.5">
-                      SOON
+                      Segera
                     </span>
                   </button>
                 </div>
