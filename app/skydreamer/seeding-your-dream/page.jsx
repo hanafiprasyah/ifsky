@@ -32,6 +32,52 @@ function stripHtml(html) {
   return (div.textContent || div.innerText || "").trim();
 }
 
+// --- Profanity Guard (ID + EN) ---
+function escapeRegExp(s) {
+  return s.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const BAD_WORDS_ID = [
+  // Indonesia (ringkas; tambahkan sesuai kebutuhan)
+  "anjing",
+  "asu",
+  "bangsat",
+  "babi",
+  "tai",
+  "kontol",
+  "memek",
+  "goblok",
+  "tolol",
+  "brengsek",
+  "keparat",
+  "kampret",
+  "idiot",
+];
+const BAD_WORDS_EN = [
+  // Inggris (umum)
+  "fuck",
+  "shit",
+  "bitch",
+  "bastard",
+  "asshole",
+  "dick",
+  "pussy",
+  "idiot",
+  "moron",
+];
+const BAD_WORDS = Array.from(new Set([...BAD_WORDS_ID, ...BAD_WORDS_EN]));
+// Unicode-safe word boundary: bukan huruf/angka/_ di kiri/kanan
+const PROFANITY_RE = new RegExp(
+  `(?<![\\\p{L}\\\p{N}_])(${BAD_WORDS.map(escapeRegExp).join(
+    "|"
+  )})(?![\\\p{L}\\\p{N}_])`,
+  "iu"
+);
+function hasProfanity(text) {
+  if (!text) return false;
+  return PROFANITY_RE.test(text);
+}
+
 export default function GuestbookPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
@@ -148,6 +194,14 @@ export default function GuestbookPage() {
 
     if (!content_text) {
       setError2("Kesan & pesan masih kosong.");
+      return;
+    }
+
+    // Profanity filter (client-side). Server will re-check as well.
+    if (hasProfanity(content_text)) {
+      setError2(
+        "Teks mengandung kata tidak pantas. Mohon perbaiki kata-katanya."
+      );
       return;
     }
 
