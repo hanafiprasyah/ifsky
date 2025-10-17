@@ -16,6 +16,7 @@ function HeaderImpl() {
   const isHome = pathname === "/";
   const isAbout = pathname.startsWith("/about");
   const isProducts = pathname.startsWith("/products");
+  const isSkydreamer = pathname.startsWith("/skydreamer");
 
   const closeSidebar = () => {
     try {
@@ -294,23 +295,42 @@ function HeaderImpl() {
                 </div>
                 {/* End Products Dropdown Link */}
 
-                {/* Skydreamer Zone (disabled) */}
+                {/* Skydreamer Zone (LITE) */}
                 <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block">
-                  <button
+                  <Link
                     id="hs-pro-shnnd-sky"
                     type="button"
-                    disabled
-                    aria-disabled="true"
-                    className="hs-dropdown-toggle transition-all duration-300 ease-in-out cursor-not-allowed py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center gap-x-2 text-sm text-start rounded-lg underline-offset-4 text-gray-400 disabled:opacity-60 disabled:pointer-events-none focus:outline-hidden"
+                    onClick={closeSidebar}
+                    data-hs-overlay="#hs-pro-dmh"
+                    href={"/skydreamer"}
+                    aria-current={isSkydreamer ? "page" : undefined}
+                    className={cx(
+                      "hs-dropdown-toggle transition-all duration-300 ease-in-out pointer-events-auto cursor-pointer py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center gap-x-2 text-sm text-start rounded-lg disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden",
+                      isSkydreamer
+                        ? "text-gray-800 hover:text-neutral-500"
+                        : "text-gray-500 hover:text-gray-800"
+                    )}
                     aria-haspopup="menu"
                     aria-expanded="false"
-                    aria-label="Skydreamer Zone (segera hadir)"
+                    aria-label="Skydreamer Zone (LITE)"
                   >
-                    <span className="relative">Skydreamer</span>
-                    <span className="inline-flex items-center rounded-full bg-red-600 text-white text-[10px] font-semibold leading-none px-2 py-0.5">
-                      Segera
+                    {/* underline hanya di label */}
+                    <span
+                      className={cx(
+                        "relative",
+                        isSkydreamer
+                          ? "underline underline-offset-4 decoration-1"
+                          : "no-underline"
+                      )}
+                    >
+                      Skydreamer
                     </span>
-                  </button>
+
+                    {/* badge tidak ikut underline */}
+                    <span className="inline-flex items-center rounded-full bg-sky-600 text-neutral-100 text-[10px] font-semibold leading-none px-2 py-0.5 no-underline decoration-transparent">
+                      LITE
+                    </span>
+                  </Link>
                 </div>
                 {/* End Skydreamer Zone */}
               </div>
