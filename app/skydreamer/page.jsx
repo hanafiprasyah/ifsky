@@ -3,7 +3,55 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import { animate } from "motion";
 import { motion } from "motion/react";
-import Image from "next/image";
+
+// --- Text helpers for dynamic cloud sizing ---
+function stripHtmlToText(html) {
+  const s = String(html || "");
+  return s
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+let __measureCanvas;
+function measureTextPx(text, font) {
+  const t = String(text || "");
+  if (typeof window === "undefined" || typeof document === "undefined") {
+    // SSR-safe fallback estimate (~7px per char for 13–14px font)
+    return t.length * 7;
+  }
+  if (!__measureCanvas) __measureCanvas = document.createElement("canvas");
+  const ctx = __measureCanvas.getContext("2d");
+  ctx.font = font || "500 14px Inter, ui-sans-serif, system-ui, -apple-system";
+  const m = ctx.measureText(t);
+  return m.width;
+}
+
+function ellipsizeToWidth(text, maxPx, font) {
+  let raw = String(text || "").trim();
+  if (!raw) return "";
+  // If fits, return as-is
+  if (measureTextPx(raw, font) <= maxPx) return raw;
+  // Binary search the longest prefix that fits when suffixed with ellipsis
+  let lo = 0,
+    hi = raw.length,
+    best = "";
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1;
+    const cand = raw.slice(0, mid) + "…";
+    if (measureTextPx(cand, font) <= maxPx) {
+      best = cand;
+      lo = mid + 1;
+    } else {
+      hi = mid - 1;
+    }
+  }
+  return best || "…";
+}
 
 function seededRandom(seedStr) {
   // simple xorshift32 from string seed
@@ -27,6 +75,7 @@ function CloudItem({
   const driftRef = useRef(null); // horizontal wind drift
   const bobRef = useRef(null); // vertical bob + micro tilt
   const rand = useMemo(() => seededRandom(msg.id), [msg.id]);
+  const gradId = useMemo(() => `ifsky-cloud-grad-${msg.id}`, [msg.id]);
 
   // Horizontal lane based on seed; vertical derived from index
   // Zig-zag lanes: even rows use 15–45%, odd rows use 55–85%
@@ -46,6 +95,53 @@ function CloudItem({
   const bottom = useMemo(() => 48 + index * rowHeight, [index, rowHeight]);
   const scale = useMemo(() => 0.85 + rand() * 0.6, [rand]);
   const rotate = useMemo(() => -4 + rand() * 8, [rand]);
+
+  // Derive plain text from HTML and compute dynamic cloud size
+  const plain = useMemo(
+    () => stripHtmlToText(msg?.content_html || msg?.message || ""),
+    [msg?.content_html, msg?.message]
+  );
+  const fontStr = "600 13px Inter, ui-sans-serif, system-ui, -apple-system";
+  const BASE_W = 180; // px, original asset width
+  const BASE_H = 110; // px, original asset height
+  const RATIO = BASE_H / BASE_W;
+  const MAX_W = 320; // clamp to avoid oversized clouds
+  const MIN_W = 150;
+  const PADDING_X = 44; // left+right padding inside cloud for text
+
+  // Two-line (clamped) display; width derived from full text, not pre-ellipsized
+  const displayText = useMemo(() => plain, [plain]);
+
+  const textPx = useMemo(() => measureTextPx(plain, fontStr), [plain]);
+  const idealW0 = useMemo(
+    () => Math.ceil(Math.max(BASE_W, textPx + PADDING_X)),
+    [textPx]
+  );
+  const cloudW0 = useMemo(
+    () => Math.min(MAX_W, Math.max(MIN_W, idealW0)),
+    [idealW0]
+  );
+  const linesCount = useMemo(
+    () => (textPx <= cloudW0 - PADDING_X ? 1 : 2),
+    [textPx, cloudW0]
+  );
+  const cloudW = useMemo(
+    () =>
+      linesCount === 1
+        ? cloudW0
+        : Math.min(MAX_W, Math.max(cloudW0, Math.round(cloudW0 * 1.08))),
+    [cloudW0, linesCount]
+  );
+  const cloudH = useMemo(
+    () => Math.round(cloudW * RATIO * (linesCount === 2 ? 1.1 : 1)),
+    [cloudW, linesCount]
+  );
+  const shadowW = Math.round(cloudW * 0.66);
+  const shadowH = Math.max(18, Math.round(shadowW * 0.18));
+  const textOffsetY = useMemo(
+    () => Math.min(24, Math.max(2, Math.round(cloudH * 0.085))),
+    [cloudH]
+  );
 
   useEffect(() => {
     // Respect reduced motion
@@ -131,32 +227,72 @@ function CloudItem({
         transform: `rotate(${rotate}deg) scale(${scale})`,
       }}
     >
-      {/* Cloud visual (PNG) */}
-      <span ref={driftRef} className="block will-change-transform">
+      {/* Cloud visual (PNG) with dynamic size */}
+      <span
+        ref={driftRef}
+        className="block will-change-transform relative"
+        style={{ width: cloudW }}
+      >
         {/* ground shadow moves with wind (x) but not bob (y) */}
         <span
           aria-hidden="true"
-          className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-[120px] h-[22px] rounded-full blur-md opacity-20"
+          className="absolute left-1/2 -bottom-1 -translate-x-1/2 rounded-full blur-md opacity-20"
           style={{
+            width: `${shadowW}px`,
+            height: `${shadowH}px`,
             background:
               "radial-gradient(closest-side, rgba(14,165,233,.35), transparent 70%)",
           }}
         />
-        <span ref={bobRef} className="block will-change-transform">
-          <Image
-            src="/logos/cloud.png"
-            alt=""
-            width={180}
-            height={110}
-            draggable={false}
-            sizes="(max-width: 640px) 150px, 180px"
-            className="select-none pointer-events-none relative drop-shadow-md transition-all group-hover:scale-105 group-hover:drop-shadow-xl"
-          />
+        <span
+          ref={bobRef}
+          className="relative block will-change-transform"
+          style={{ height: cloudH }}
+        >
+          <svg
+            width={cloudW}
+            height={cloudH}
+            viewBox="0 0 155 97"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+            className="select-none pointer-events-none relative w-full h-auto drop-shadow-md transition-all group-hover:scale-105 group-hover:drop-shadow-xl"
+          >
+            <defs>
+              <linearGradient
+                id={gradId}
+                x1="77.5"
+                y1="3"
+                x2="77.5"
+                y2="94"
+                gradientUnits="userSpaceOnUse"
+              >
+                <stop stopColor="#19458B" />
+                <stop offset="1" stopColor="#5685D8" />
+              </linearGradient>
+            </defs>
+            <path
+              d="M35.975 94H85.05H130.35C143.156 92.1595 153 80.8293 153 67.4583C153 53.8811 142.85 42.6843 129.755 41.107C126.239 19.4937 107.563 3 85.05 3C67.7741 3 52.7569 12.7135 45.1166 26.9997C42.208 26.1853 39.1421 25.75 35.975 25.75C17.2111 25.75 2 41.0281 2 59.875C2 78.7219 17.2111 94 35.975 94Z"
+              fill={`url(#${gradId})`}
+            />
+          </svg>
+          {/* Overlay text (multi-line clamp, centered) */}
+          <span
+            className="absolute inset-0 z-10 flex items-center justify-center px-4 text-center"
+            style={{ transform: `translateY(${textOffsetY}px)` }}
+          >
+            <span
+              className="whitespace-normal line-clamp-2 overflow-hidden text-[13px] sm:text-[14px] leading-[1.35] font-medium text-white/95 dark:text-sky-50/95 drop-shadow-[0_1px_0_rgba(0,0,0,0.25)]"
+              style={{
+                width: cloudW - 16,
+                display: "-webkit-box",
+                WebkitLineClamp: 2,
+                WebkitBoxOrient: "vertical",
+              }}
+            >
+              {displayText}
+            </span>
+          </span>
         </span>
-      </span>
-      {/* Tiny dot as affordance */}
-      <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-slate-500 text-xs opacity-60 group-hover:opacity-90">
-        {/*  */}
       </span>
     </button>
   );
