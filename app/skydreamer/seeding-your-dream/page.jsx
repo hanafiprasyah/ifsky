@@ -235,7 +235,7 @@ export default function GuestbookPage() {
       setEditorHtml("");
       setEditorDelta(null);
       // Info kecil sebelum redirect (opsional)
-      setTimeout(() => router.push("/"), 500);
+      setTimeout(() => router.push("/skydreamer"), 250);
     } catch (e) {
       setError2("Koneksi bermasalah. Coba lagi.");
     } finally {
@@ -265,7 +265,7 @@ export default function GuestbookPage() {
 
       {/* STEP 1 */}
       {step === 1 && (
-        <form onSubmit={handleSubmitStep1} className="space-y-4">
+        <form onSubmit={handleSubmitStep1} className="space-y-6">
           <input
             type="text"
             name="website"
@@ -278,8 +278,8 @@ export default function GuestbookPage() {
               Nama Lengkap
             </label>
             <input
-              className="w-full rounded-xl border p-3"
-              placeholder="Nama Anda"
+              className="w-full text-sm rounded-xl border p-3"
+              placeholder="Nama akan ditampilkan pada awan"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -290,8 +290,8 @@ export default function GuestbookPage() {
               Nomor WA/HP
             </label>
             <input
-              className="w-full rounded-xl border p-3"
-              placeholder="08xxxx"
+              className="w-full text-sm rounded-xl border p-3"
+              placeholder="Pakai nomor WA dan telpon yang aktif"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
@@ -302,8 +302,8 @@ export default function GuestbookPage() {
             </label>
             <input
               type="email"
-              className="w-full rounded-xl border p-3"
-              placeholder="nama@email.com"
+              className="w-full text-sm rounded-xl border p-3"
+              placeholder="Email tidak akan disebar"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -323,9 +323,9 @@ export default function GuestbookPage() {
           <button
             type="submit"
             disabled={loading1}
-            className="w-full rounded-xl cursor-pointer duration-300 ease-in-out transition-all bg-sky-600 text-white py-3 font-medium hover:bg-sky-700 disabled:opacity-60"
+            className="w-full rounded-xl mt-4 cursor-pointer duration-300 ease-in-out transition-all bg-sky-600 text-white py-3 font-medium hover:bg-sky-700 disabled:opacity-60"
           >
-            {loading1 ? "Menyimpan…" : "Lanjut ke Kesan & Pesan"}
+            {loading1 ? "Menyimpan…" : "Lanjutkan mimpimu"}
           </button>
 
           {error1 && <p className="text-red-600 text-sm">{error1}</p>}
@@ -343,8 +343,8 @@ export default function GuestbookPage() {
             style={{ display: "none" }}
           />
           <div>
-            <label className="block text-sm font-medium mb-2 text-neutral-700 ">
-              Kesan & Pesan
+            <label className="block text-lg font-medium mb-2 text-neutral-700 ">
+              Apa yang sedang kamu mimpikan? Ketik dan ceritakan ke awan..
             </label>
             <ReactQuill
               ref={quillRef}
@@ -357,26 +357,44 @@ export default function GuestbookPage() {
                 } catch {}
               }}
               modules={toolbar}
-              className="bg-white rounded-xl"
+              className="bg-white mt-4 rounded-xl"
             />
-            <p className="text-xs text-neutral-600  mt-2">
+            <p className="text-sm text-neutral-600 mt-4">
               Tips: Jangan gunakan kata kasar ya 🙏
             </p>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex mt-12 items-center gap-8">
             <button
+              class="pe-3 group inline-flex cursor-pointer transition-all duration-300 ease-in-out items-center gap-x-2 text-start text-sm text-gray-800 rounded-full hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 "
+              href="#"
               type="button"
               onClick={() => setStep(1)}
-              className="rounded-xl cursor-pointer duration-300 ease-in-out transition-all border px-4 py-2"
             >
+              <span class="shrink-0 size-9 inline-flex justify-center transition-all duration-300 ease-in-out items-center bg-gray-100 rounded-full group-hover:bg-gray-200 group-focus:bg-gray-200 ">
+                <svg
+                  class="shrink-0 size-4"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="m12 19-7-7 7-7" />
+                  <path d="M19 12H5" />
+                </svg>
+              </span>
               Kembali
             </button>
             <button
               type="submit"
               disabled={loading2}
-              className="rounded-xl cursor-pointer duration-300 ease-in-out transition-all bg-sky-600 text-white px-5 py-2 font-medium hover:bg-sky-700 disabled:opacity-60"
+              className="rounded-lg cursor-pointer duration-300 ease-in-out transition-all bg-sky-600 text-white px-5 py-2 font-medium hover:bg-sky-700 disabled:opacity-60"
             >
-              {loading2 ? "Mengirim…" : "Kirim & Selesai"}
+              {loading2 ? "Mengirim…" : "Kirim ke awan"}
             </button>
           </div>
           {error2 && <p className="text-red-600 text-sm">{error2}</p>}

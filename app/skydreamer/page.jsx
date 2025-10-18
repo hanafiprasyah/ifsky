@@ -16,8 +16,16 @@ function seededRandom(seedStr) {
   return () => (h = (h ^ (h >>> 15)) >>> 0) / 4294967295;
 }
 
-function CloudItem({ msg, index, rowHeight = 160, onOpen }) {
+function CloudItem({
+  msg,
+  index,
+  rowHeight = 160,
+  onOpen,
+  weather = "sedang",
+}) {
   const ref = useRef(null);
+  const driftRef = useRef(null); // horizontal wind drift
+  const bobRef = useRef(null); // vertical bob + micro tilt
   const rand = useMemo(() => seededRandom(msg.id), [msg.id]);
 
   // Horizontal lane based on seed; vertical derived from index
@@ -40,25 +48,76 @@ function CloudItem({ msg, index, rowHeight = 160, onOpen }) {
   const rotate = useMemo(() => -4 + rand() * 8, [rand]);
 
   useEffect(() => {
-    if (!ref.current) return;
+    // Respect reduced motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const controls = animate(
-      ref.current,
-      {
-        transform: [
-          `translate3d(0, -6px, 0) rotate(${rotate}deg) scale(${scale})`,
-          `translate3d(0, 6px, 0) rotate(${rotate}deg) scale(${scale})`,
-        ],
-      },
-      {
-        duration: 6 + rand() * 4,
-        direction: "alternate",
-        repeat: Infinity,
-        easing: "ease-in-out",
-      }
-    );
-    return () => controls?.cancel?.();
-  }, [rand, rotate, scale]);
+
+    // Helper to pick a value in range using the seeded RNG
+    const pick = (min, max) => min + rand() * (max - min);
+
+    // Weather presets
+    let ampY, ampX, wiggle, durX, durY;
+    switch (weather) {
+      case "tenang":
+        ampY = pick(3, 6); // lebih kalem (px)
+        ampX = pick(8, 14); // hembusan pelan (px)
+        wiggle = pick(0.2, 0.6); // derajat
+        durX = pick(24, 36); // lebih panjang = lebih lembut (s)
+        durY = pick(10, 14);
+        break;
+      case "berangin":
+        ampY = pick(10, 16); // bobbing lebih besar
+        ampX = pick(24, 40); // drift lebih jauh
+        wiggle = pick(1.2, 2.2);
+        durX = pick(12, 18); // tempo lebih cepat
+        durY = pick(6, 9);
+        break;
+      case "sedang":
+      default:
+        ampY = pick(6, 10);
+        ampX = pick(14, 24);
+        wiggle = pick(0.6, 1.4);
+        durX = pick(18, 28);
+        durY = pick(8, 12);
+        break;
+    }
+
+    const controls = [];
+
+    if (driftRef.current) {
+      controls.push(
+        animate(
+          driftRef.current,
+          { x: [-ampX * 0.35, ampX, -ampX, ampX * 0.25, 0] },
+          {
+            duration: durX,
+            easing: "ease-in-out",
+            repeat: Infinity,
+            delay: rand() * 2,
+          }
+        )
+      );
+    }
+
+    if (bobRef.current) {
+      controls.push(
+        animate(
+          bobRef.current,
+          {
+            y: [-ampY, 0, ampY, 0, -ampY],
+            rotate: [-wiggle, 0, wiggle, 0, -wiggle],
+          },
+          {
+            duration: durY,
+            easing: "ease-in-out",
+            repeat: Infinity,
+            delay: rand() * 1.5,
+          }
+        )
+      );
+    }
+
+    return () => controls.forEach((c) => c?.cancel?.());
+  }, [rand, weather]);
 
   return (
     <button
@@ -73,23 +132,28 @@ function CloudItem({ msg, index, rowHeight = 160, onOpen }) {
       }}
     >
       {/* Cloud visual (PNG) */}
-      <span
-        aria-hidden="true"
-        className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-[120px] h-[22px] rounded-full blur-md opacity-20"
-        style={{
-          background:
-            "radial-gradient(closest-side, rgba(14,165,233,.35), transparent 70%)",
-        }}
-      />
-      <Image
-        src="/logos/cloud.png"
-        alt=""
-        width={180}
-        height={110}
-        draggable={false}
-        sizes="(max-width: 640px) 150px, 180px"
-        className="select-none pointer-events-none relative drop-shadow-md transition-all group-hover:scale-105 group-hover:drop-shadow-xl"
-      />
+      <span ref={driftRef} className="block will-change-transform">
+        {/* ground shadow moves with wind (x) but not bob (y) */}
+        <span
+          aria-hidden="true"
+          className="absolute left-1/2 -bottom-1 -translate-x-1/2 w-[120px] h-[22px] rounded-full blur-md opacity-20"
+          style={{
+            background:
+              "radial-gradient(closest-side, rgba(14,165,233,.35), transparent 70%)",
+          }}
+        />
+        <span ref={bobRef} className="block will-change-transform">
+          <Image
+            src="/logos/cloud.png"
+            alt=""
+            width={180}
+            height={110}
+            draggable={false}
+            sizes="(max-width: 640px) 150px, 180px"
+            className="select-none pointer-events-none relative drop-shadow-md transition-all group-hover:scale-105 group-hover:drop-shadow-xl"
+          />
+        </span>
+      </span>
       {/* Tiny dot as affordance */}
       <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-slate-500 text-xs opacity-60 group-hover:opacity-90">
         {/*  */}
@@ -101,6 +165,8 @@ function CloudItem({ msg, index, rowHeight = 160, onOpen }) {
 function CloudModal({ open, onClose, msg }) {
   // Respect prefers-reduced-motion for modal animation
   const [reduced, setReduced] = useState(false);
+  // Weather mood: "tenang" | "sedang" | "berangin"
+  const [weather, setWeather] = useState("sedang");
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -183,7 +249,7 @@ function CloudModal({ open, onClose, msg }) {
           <div className="relative z-10 p-5 sm:p-10 overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-track]:bg-sky-50 [&::-webkit-scrollbar-thumb]:bg-sky-200 dark:[&::-webkit-scrollbar-track]:bg-[#0a1424] dark:[&::-webkit-scrollbar-thumb]:bg-sky-900/60">
             <div className="max-w-xl mx-auto">
               <div
-                className="prose prose-sm max-w-none mt-3"
+                className="prose prose-sm max-w-none mt-0"
                 dangerouslySetInnerHTML={{ __html: msg?.content_html || "" }}
               />
             </div>
@@ -202,6 +268,8 @@ export default function SkydreamerScene() {
   const [active, setActive] = useState(null);
   const containerRef = useRef(null);
   const [lockBottom, setLockBottom] = useState(true); // auto-stick
+  // Weather mood: "tenang" | "sedang" | "berangin"
+  const [weather, setWeather] = useState("sedang");
   const ROW = 120;
 
   // Respect prefers-reduced-motion (disable glow & sparkles)
@@ -276,6 +344,58 @@ export default function SkydreamerScene() {
         onScroll={onScroll}
         className="relative h-[85vh] overflow-y-auto overscroll-contain bg-gradient-to-b from-sky-100 to-white"
       >
+        {/* Weather toggle */}
+        <div className="sticky top-0 z-30 px-4 pt-3 pointer-events-none">
+          <div className="ml-auto w-fit pointer-events-auto flex items-center gap-2">
+            <div className="inline-flex rounded-full bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/40 ring-1 ring-sky-200 shadow-sm dark:bg-[#0b1220]/70 dark:ring-sky-900">
+              <button
+                type="button"
+                aria-pressed={weather === "tenang"}
+                onClick={() => setWeather("tenang")}
+                className={`px-3 py-1.5 text-xs font-medium cursor-pointer duration-300 ease-in-out rounded-full transition ${
+                  weather === "tenang"
+                    ? "bg-sky-600 text-white shadow"
+                    : "text-sky-700 hover:bg-sky-100 dark:text-sky-200/90 dark:hover:bg-white/10"
+                }`}
+              >
+                Tenang
+              </button>
+              <button
+                type="button"
+                aria-pressed={weather === "sedang"}
+                onClick={() => setWeather("sedang")}
+                className={`px-3 py-1.5 text-xs font-medium cursor-pointer duration-300 ease-in-out rounded-full transition ${
+                  weather === "sedang"
+                    ? "bg-sky-600 text-white shadow"
+                    : "text-sky-700 hover:bg-sky-100 dark:text-sky-200/90 dark:hover:bg-white/10"
+                }`}
+              >
+                Sedang
+              </button>
+              <button
+                type="button"
+                aria-pressed={weather === "berangin"}
+                onClick={() => setWeather("berangin")}
+                className={`px-3 py-1.5 text-xs font-medium cursor-pointer duration-300 ease-in-out rounded-full transition ${
+                  weather === "berangin"
+                    ? "bg-sky-600 text-white shadow"
+                    : "text-sky-700 hover:bg-sky-100 dark:text-sky-200/90 dark:hover:bg-white/10"
+                }`}
+              >
+                Berangin
+              </button>
+            </div>
+
+            {/* Reduced motion notice */}
+            <span
+              className={`text-[11px] px-2 py-1 rounded-md ring-1 ring-sky-200/60 bg-white/70 backdrop-blur dark:bg-[#0b1220]/70 dark:ring-sky-900 ${
+                reduced ? "opacity-100" : "opacity-0"
+              } transition`}
+            >
+              Motion off
+            </span>
+          </div>
+        </div>
         {/* Cloud field */}
         <div className="relative" style={{ height: `${skyHeight}px` }}>
           {loading && (
@@ -296,6 +416,7 @@ export default function SkydreamerScene() {
               index={i}
               rowHeight={ROW}
               onOpen={setActive}
+              weather={weather}
             />
           ))}
         </div>

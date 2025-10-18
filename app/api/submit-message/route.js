@@ -25,6 +25,55 @@ function plainTextFromHtml(html) {
     .trim();
 }
 
+// --- Profanity Guard (ID + EN) ---
+function escapeRegExp(s) {
+  return String(s).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+const BAD_WORDS_ID = [
+  // Indonesia (ringkas; bisa ditambah sesuai kebutuhan)
+  "anjing",
+  "asu",
+  "bangsat",
+  "babi",
+  "tai",
+  "kontol",
+  "memek",
+  "goblok",
+  "tolol",
+  "brengsek",
+  "keparat",
+  "kampret",
+  "idiot",
+];
+const BAD_WORDS_EN = [
+  // Inggris (umum)
+  "fuck",
+  "shit",
+  "bitch",
+  "bastard",
+  "asshole",
+  "dick",
+  "pussy",
+  "idiot",
+  "moron",
+];
+const BAD_WORDS = Array.from(new Set([...BAD_WORDS_ID, ...BAD_WORDS_EN]));
+
+// Boundary-aware checker tanpa lookbehind (kompatibel Node)
+function hasProfanity(text) {
+  if (!text) return false;
+  const t = String(text).toLowerCase();
+  for (const w of BAD_WORDS) {
+    const re = new RegExp(
+      `(?:^|[^\\\p{L}\\\p{N}_])${escapeRegExp(w)}(?:$|[^\\\p{L}\\\p{N}_])`,
+      "iu"
+    );
+    if (re.test(t)) return true;
+  }
+  return false;
+}
+
 async function verifyTurnstile(token, ip) {
   if (!SHOULD_VERIFY_TURNSTILE) return true; // sementara BYPASS sesuai flag
   if (!token) return false;
@@ -125,6 +174,16 @@ export async function POST(req) {
     const plain = plainTextFromHtml(safeHtml);
     if (!plain) {
       return Response.json({ error: "Konten kosong" }, { status: 400 });
+    }
+    // 6b) Profanity guard
+    if (hasProfanity(plain)) {
+      return Response.json(
+        {
+          error:
+            "Teks mengandung kata tidak pantas. Mohon perbaiki kata-katanya.",
+        },
+        { status: 400 }
+      );
     }
 
     // 7) Insert
