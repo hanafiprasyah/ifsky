@@ -2,11 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import Product1 from "../../../public/images/product4.jpg";
-import ShopeeLogo from "../../../public/logos/shopee.png";
-import TiktokLogo from "../../../public/logos/tiktok.png";
-import TokopediaLogo from "../../../public/logos/tokopedia.png";
-import Link from "next/link";
+import Product1 from "../../../public/images/matahari2.webp";
 
 export default function MatahariModal() {
   return (

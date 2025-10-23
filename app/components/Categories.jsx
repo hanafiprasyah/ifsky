@@ -2,9 +2,9 @@
 
 import React from "react";
 import Image from "next/image";
-import Product1 from "../../public/images/product4.jpg";
-import Product2 from "../../public/images/product5.jpg";
-import Product3 from "../../public/images/product6.jpg";
+import Product1 from "../../public/images/matahari1.webp";
+import Product2 from "../../public/images/bulan1.webp";
+import Product3 from "../../public/images/langit1.webp";
 import dynamic from "next/dynamic";
 import { motion } from "motion/react";
 

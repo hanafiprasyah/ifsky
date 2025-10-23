@@ -5,9 +5,9 @@ import { usePathname } from "next/navigation";
 import React, { useEffect } from "react";
 import Image from "next/image";
 // import HeaderLogo from "../../public/images/ifsky/ifskyaja2.svg";
-import Product1 from "../../public/images/product4.jpg";
-import Product2 from "../../public/images/product5.jpg";
-import Product3 from "../../public/images/product6.jpg";
+import Product1 from "../../public/images/matahari3.webp";
+import Product2 from "../../public/images/bulan3.webp";
+import Product3 from "../../public/images/langit3.webp";
 
 const cx = (...c) => c.filter(Boolean).join(" ");
 

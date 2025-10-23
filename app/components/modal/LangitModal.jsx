@@ -2,11 +2,7 @@
 
 import Image from "next/image";
 import React from "react";
-import Product3 from "../../../public/images/product6.jpg";
-import ShopeeLogo from "../../../public/logos/shopee.png";
-import TiktokLogo from "../../../public/logos/tiktok.png";
-import TokopediaLogo from "../../../public/logos/tokopedia.png";
-import Link from "next/link";
+import Product3 from "../../../public/images/langit2.webp";
 
 export default function LangitModal() {
   return (

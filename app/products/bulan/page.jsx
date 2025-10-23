@@ -1,7 +1,9 @@
 "use client";
 
 import React from "react";
-import Product2 from "../../../public/images/product5.jpg";
+import Product1 from "../../../public/images/bulan1.webp";
+import Product2 from "../../../public/images/bulan2.webp";
+import Product3 from "../../../public/images/bulan3.webp";
 import Image from "next/image";
 import Link from "next/link";
 import ShopeeLogo from "../../../public/logos/shopee.png";
@@ -32,7 +34,7 @@ export default function BulanDetail() {
                         <div className="hs-carousel-pagination-item relative shrink-0 size-20 rounded-md sm:rounded-lg overflow-hidden cursor-pointer after:absolute after:inset-0 after:size-full after:rounded-md sm:after:rounded-lg border border-neutral-200 hs-carousel-active:border-neutral-800 hs-carousel-active:after:bg-black/10">
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-md sm:rounded-lg"
-                            src={Product2}
+                            src={Product1}
                             alt="IFSKY Bulan variance detail"
                             width="auto"
                             height="auto"
@@ -50,7 +52,7 @@ export default function BulanDetail() {
                         <div className="hs-carousel-pagination-item relative shrink-0 size-20 rounded-md sm:rounded-lg overflow-hidden cursor-pointer after:absolute after:inset-0 after:size-full after:rounded-md sm:after:rounded-lg border border-neutral-200 hs-carousel-active:border-neutral-800 hs-carousel-active:after:bg-black/10">
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-md sm:rounded-lg"
-                            src={Product2}
+                            src={Product3}
                             alt="IFSKY Bulan variance detail"
                             width="auto"
                             height="auto"
@@ -66,7 +68,7 @@ export default function BulanDetail() {
                         <div className="hs-carousel-slide">
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-lg"
-                            src={Product2}
+                            src={Product1}
                             alt="IFSKY Bulan variance detail"
                             width="auto"
                             height="auto"
@@ -84,7 +86,7 @@ export default function BulanDetail() {
                         <div className="hs-carousel-slide">
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-lg"
-                            src={Product2}
+                            src={Product3}
                             alt="IFSKY Bulan variance detail"
                             width="auto"
                             height="auto"

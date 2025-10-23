@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import SalePicture from "../../public/images/sale1.jpg";
+import SalePicture from "../../public/images/matahari3.webp";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";

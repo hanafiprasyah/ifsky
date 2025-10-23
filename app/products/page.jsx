@@ -6,9 +6,9 @@ export const metadata = {
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import Product1 from "../../public/images/product4.jpg";
-import Product2 from "../../public/images/product5.jpg";
-import Product3 from "../../public/images/product6.jpg";
+import Product1 from "../../public/images/matahari3.webp";
+import Product2 from "../../public/images/bulan3.webp";
+import Product3 from "../../public/images/langit3.webp";
 
 export default function ProductList() {
   return (
