@@ -342,7 +342,9 @@ export default function BulanDetail() {
               <div className="mt-7 flex gap-3">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-1 md:gap-3">
                   <Link
-                    href={"https://shopee.co.id/ifsky.id"}
+                    href={
+                      "https://shopee.co.id/IFSKY-Varian-Bulan-Perfume-Women-by-IFSKY-i.1602644864.54100893865?extraParams=%7B%22display_model_id%22%3A282129743846%7D"
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
@@ -380,7 +382,9 @@ export default function BulanDetail() {
                   </Link>
 
                   <Link
-                    href={"https://www.tokopedia.com/"}
+                    href={
+                      "https://www.tokopedia.com/ifsky-perfume/ifsky-varian-bulan-perfume-women-by-ifsky-1733132726733342702?extParam=src%3Dshop%26whid%3D20922082&aff_unique_id=&channel=others&chain_key="
+                    }
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
