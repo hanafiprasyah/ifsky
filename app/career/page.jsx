@@ -17,7 +17,7 @@ export default async function CareerPage() {
     .from("job_openings")
     .select("id, title, department, location, employment_type, apply_url")
     .eq("status", "published")
-    .in("title", ["Graphic Designer", "Model Parfum"])
+    .in("title", ["XX", "XX"])
     .order("sort_order", { ascending: true })
     .order("created_at", { ascending: false });
 
@@ -45,7 +45,7 @@ export default async function CareerPage() {
             {/* Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
-                <h3 className="text-xl md:text-3xl font-medium text-neutral-600">
+                <h3 className="text-xl md:text-3xl font-medium text-neutral-700">
                   Lowongan Terbuka
                 </h3>
                 <p className="mt-2 text-sm text-neutral-500">
@@ -61,7 +61,7 @@ export default async function CareerPage() {
                 )}
 
                 {listing.length === 0 && !error && (
-                  <div className="text-sm text-neutral-400">
+                  <div className="text-sm text-neutral-500">
                     Tidak ada lowongan saat ini.
                   </div>
                 )}

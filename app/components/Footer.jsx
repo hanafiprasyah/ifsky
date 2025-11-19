@@ -42,11 +42,12 @@ export default function Footer() {
               <>
                 <li>
                   <Link
-                    className="text-sm transition-all duration-300 cursor-not-allowed ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
-                    href={""}
-                    onClick={(e) => {
-                      e.preventDefault();
-                    }}
+                    className="text-sm transition-all duration-300 cursor-pointer ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
+                    href={"https://maps.app.goo.gl/NWzhU3dhFFiBq4966"}
+                    // onClick={(e) => {
+                    //   e.preventDefault();
+                    // }}
+                    target="_blank"
                     aria-disabled="true"
                   >
                     Lokasi Toko

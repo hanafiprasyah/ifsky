@@ -199,7 +199,7 @@ export default function FaqComponent() {
                   <Link
                     className="group inline-flex justify-center transition-all duration-200 ease-in-out items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg text-blue-600 hover:text-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:text-blue-700"
                     href={
-                      "https://wa.me/+6289679632323?text=Halo%20IFSKY!%20Saya%20ingin%20cek%20keaslian%20produk%20IFSKY%20yang%20saya%20beli.%20Bisa%20bantu?"
+                      "https://wa.me/+6282364459298?text=Halo%20IFSKY!%20Saya%20ingin%20cek%20keaslian%20produk%20IFSKY%20yang%20saya%20beli.%20Bisa%20bantu?"
                     }
                     target="_blank"
                   >

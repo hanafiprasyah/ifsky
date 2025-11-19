@@ -8,7 +8,7 @@ import { motion } from "motion/react";
 
 export default function SaleHome() {
   // Typewriter for headline (calm)
-  const headlineText = "Diskon hingga 50%"; // fix typo: hingga
+  const headlineText = "Diskon hingga 18%"; // fix typo: hingga
   const [head, setHead] = useState("");
   const [headDone, setHeadDone] = useState(false);
   const headIntervalRef = useRef(null);
@@ -113,7 +113,7 @@ export default function SaleHome() {
                 className="text-sm md:text-base transition-all duration-200 ease-in-out text-white underline underline-offset-4 hover:text-white/80 focus:outline-hidden focus:text-white/80"
                 target="_blank"
                 href={
-                  "https://wa.me/+6289679632323?text=Halo!%20Saya%20baru%20saja%20mengunjungi%20website%20resmi%20IFSKY%20dan%20saya%20tertarik%20dengan%20produk%20anda.%20Bisa%20kita%20berbicara%20lebih%20lanjut%20tentang%20diskon%20yang%20sedang%20berlaku?"
+                  "https://wa.me/+6282364459298?text=Halo!%20Saya%20baru%20saja%20mengunjungi%20website%20resmi%20IFSKY%20dan%20saya%20tertarik%20dengan%20produk%20anda.%20Bisa%20kita%20berbicara%20lebih%20lanjut%20tentang%20diskon%20yang%20sedang%20berlaku?"
                 }
               >
                 Hubungi kami

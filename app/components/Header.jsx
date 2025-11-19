@@ -240,7 +240,7 @@ function HeaderImpl() {
                       <div className="max-w-lg w-full mx-auto text-center">
                         <p className="mb-2">
                           <span className="py-1 px-2.5 pointer-events-none inline-block border border-gray-500 text-gray-800 text-xs rounded-full">
-                            Segera Hadir
+                            Telah Hadir
                           </span>
                         </p>
                         <p className="mb-5 font-medium text-lg pointer-events-none text-gray-800">
