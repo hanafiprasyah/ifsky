@@ -40,7 +40,7 @@ export default function ProductList() {
 
           <div className="pt-3">
             <span className="block text-sm md:text-base text-gray-800">
-              IFSKY Matahari Variance
+              IFSKY Matahari Variant
             </span>
 
             <p className="mt-2 font-medium text-md text-gray-900">
@@ -48,8 +48,8 @@ export default function ProductList() {
             </p>
 
             <p className="mt-1 font-medium text-xs text-gray-500">
-              Cocok untuk: Pria dominan yang membawa energi dan inspirasi di
-              setiap langkah.
+              Recommended for: Men who bring energy and inspiration to every
+              step.
             </p>
           </div>
         </div>
@@ -93,7 +93,7 @@ export default function ProductList() {
 
           <div className="pt-3">
             <span className="block text-sm md:text-base text-gray-800">
-              IFSKY Bulan Variance
+              IFSKY Bulan Variant
             </span>
 
             <p className="mt-2 font-medium text-md text-gray-900">
@@ -101,8 +101,8 @@ export default function ProductList() {
             </p>
 
             <p className="mt-1 font-medium text-xs text-gray-500">
-              Cocok untuk: Wanita elegan & lembut, yang percaya bahwa keindahan
-              sejati datang dari ketenangan hati.
+              Recommended for: Elegant, gentle women who believe true beauty
+              comes from inner calm.
             </p>
           </div>
         </div>
@@ -134,7 +134,7 @@ export default function ProductList() {
 
           <div className="pt-3">
             <span className="block text-sm md:text-base text-gray-800">
-              IFSKY Langit Variance
+              IFSKY Langit Variant
             </span>
 
             <p className="mt-2 font-medium text-md text-gray-900">
@@ -142,8 +142,8 @@ export default function ProductList() {
             </p>
 
             <p className="mt-1 font-medium text-xs text-gray-500">
-              Cocok untuk: Pria & wanita modern yang hidup dengan kebebasan,
-              mimpi, dan keyakinan.
+              Recommended for: Modern men & women who live with freedom, dreams,
+              and confidence.
             </p>
           </div>
         </div>

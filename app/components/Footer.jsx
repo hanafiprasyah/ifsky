@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-5 mb-14">
           <div>
-            <h4 className="mb-3 font-medium text-sm text-gray-800">Bantuan</h4>
+            <h4 className="mb-3 font-medium text-sm text-gray-800">Help</h4>
             <ul className="grid space-y-2">
               <>
                 <li>
@@ -18,16 +18,16 @@ export default function Footer() {
                     className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
                     href={"/help-center"}
                   >
-                    Pusat Bantuan
+                    Help Center
                   </Link>
                 </li>
                 <li>
                   <Link
                     className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
-                    href={"https://wa.me/+6282364459298?text=Halo%20IFSKY!"}
+                    href={"https://wa.me/+6282364459298?text=Hello%20IFSKY!"}
                     target="_blank"
                   >
-                    Hubungi Kami
+                    Contact Us
                   </Link>
                 </li>
               </>
@@ -36,7 +36,7 @@ export default function Footer() {
           {/* End Col */}
           <div>
             <h4 className="mb-3 font-medium text-sm text-gray-800">
-              Sumber Informasi
+              Information
             </h4>
             <ul className="grid space-y-2">
               <>
@@ -50,7 +50,7 @@ export default function Footer() {
                     target="_blank"
                     aria-disabled="true"
                   >
-                    Lokasi Toko
+                    Store Location
                   </Link>
                 </li>
               </>
@@ -58,9 +58,7 @@ export default function Footer() {
           </div>
           {/* End Col */}
           <div>
-            <h4 className="mb-3 font-medium text-sm text-gray-800">
-              Perusahaan
-            </h4>
+            <h4 className="mb-3 font-medium text-sm text-gray-800">Company</h4>
             <ul className="grid space-y-2">
               <>
                 <li>
@@ -68,18 +66,18 @@ export default function Footer() {
                     className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
                     href={"/career"}
                   >
-                    Karir
+                    Careers
                   </Link>
                 </li>
                 <li>
                   <Link
                     className="text-sm transition-all duration-300 ease-in-out text-gray-500 hover:text-gray-800 focus:text-gray-800"
                     href={
-                      "https://wa.me/+6282364459298?text=Halo%20IFSKY!%20Saya%20tertarik%20untuk%20bekerjasama%20dengan%20tim%20anda."
+                      "https://wa.me/+6282364459298?text=Hello%20IFSKY!%20I%27m%20interested%20in%20partnering%20with%20your%20team."
                     }
                     target="_blank"
                   >
-                    Kerjasama Bisnis
+                    Business Partnership
                   </Link>
                 </li>
               </>
@@ -89,7 +87,7 @@ export default function Footer() {
           <div className="space-y-10">
             <div>
               <h4 className="font-medium text-sm text-gray-800">
-                Tetap terhubung
+                Stay Connected
               </h4>
               {/* Social Brands */}
               <div className="mt-3 md:mt-5 space-x-4">
@@ -136,7 +134,7 @@ export default function Footer() {
                         d="M12.94 2h3.51c.08 1.7.71 3 1.78 4.06 1.1 1.09 2.4 1.73 4.02 1.87v3.53c-1.14.12-2.28-.16-3.41-.7v6.85c0 4.18-2.53 6.39-5.87 6.39-3.23 0-5.73-2.13-5.73-5.27 0-3.17 2.5-5.22 5.73-5.22.62 0 1.25.09 1.83.27v3.63c-.56-.18-1.03-.27-1.59-.27-1.47 0-2.66 1.17-2.66 2.66 0 1.46 1.1 2.64 2.57 2.64 1.52 0 2.65-1.16 2.65-2.78V2z"
                       />
                     </svg>
-                    <span className="sr-only">Tiktok</span>
+                    <span className="sr-only">TikTok</span>
                   </Link>
                 </>
               </div>

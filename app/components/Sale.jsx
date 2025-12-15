@@ -1,14 +1,14 @@
 "use client";
 
 import React, { useEffect, useState, useRef } from "react";
-import SalePicture from "../../public/images/matahari3.webp";
+import SalePicture from "../../public/images/allvariance.jpg";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "motion/react";
 
 export default function SaleHome() {
   // Typewriter for headline (calm)
-  const headlineText = "Diskon hingga 18%"; // fix typo: hingga
+  const headlineText = "Up to 18% Off";
   const [head, setHead] = useState("");
   const [headDone, setHeadDone] = useState(false);
   const headIntervalRef = useRef(null);
@@ -79,15 +79,15 @@ export default function SaleHome() {
         <Image
           className="bg-neutral-100 pointer-events-none absolute inset-0 size-full object-cover rounded-xl"
           src={SalePicture}
-          alt="IFSKY Diskon Parfum"
+          alt="IFSKY Perfume Sale"
           width={1600}
           height={900}
           priority
         />
-        <div className="absolute inset-0 rounded-xl bg-black/20 pointer-events-none" />
+        <div className="absolute inset-0 rounded-xl bg-black/50 pointer-events-none" />
         <div className="relative z-10 size-full max-w-md mx-auto flex flex-col justify-center items-center">
           <p className="text-sm md:text-base uppercase text-white">
-            promo launching
+            launch promo
           </p>
 
           <h1 className="mt-3 font-semibold text-3xl sm:text-4xl lg:text-5xl text-white">
@@ -113,10 +113,10 @@ export default function SaleHome() {
                 className="text-sm md:text-base transition-all duration-200 ease-in-out text-white underline underline-offset-4 hover:text-white/80 focus:outline-hidden focus:text-white/80"
                 target="_blank"
                 href={
-                  "https://wa.me/+6282364459298?text=Halo!%20Saya%20baru%20saja%20mengunjungi%20website%20resmi%20IFSKY%20dan%20saya%20tertarik%20dengan%20produk%20anda.%20Bisa%20kita%20berbicara%20lebih%20lanjut%20tentang%20diskon%20yang%20sedang%20berlaku?"
+                  "https://wa.me/+6282364459298?text=Hello%21%20I%20just%20visited%20the%20official%20IFSKY%20website%20and%20I%27m%20interested%20in%20your%20products.%20Could%20we%20talk%20more%20about%20the%20current%20discount%3F"
                 }
               >
-                Hubungi kami
+                Contact us
               </Link>
             </div>
           </div>

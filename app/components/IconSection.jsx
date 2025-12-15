@@ -42,10 +42,10 @@ export default function IconSectionHome() {
             <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z" />
             <path d="m9 12 2 2 4-4" />
           </svg>
-          <p className="mt-3 font-medium text-gray-800">Keamanan Berbelanja</p>
+          <p className="mt-3 font-medium text-gray-800">Secure Shopping</p>
           <p className="mt-2 text-sm text-gray-500">
-            Berbelanja dengan percaya diri menggunakan sistem pembayaran
-            terenkripsi kami yang melindungi informasi sensitif Anda.
+            Shop with confidence using our encrypted payment system that
+            protects your sensitive information.
           </p>
         </motion.div>
         {/* End Icon Block */}
@@ -72,10 +72,9 @@ export default function IconSectionHome() {
             <circle cx={17} cy={18} r={2} />
             <circle cx={7} cy={18} r={2} />
           </svg>
-          <p className="mt-3 font-medium text-gray-800">Gratis Ongkir</p>
+          <p className="mt-3 font-medium text-gray-800">Free Shipping</p>
           <p className="mt-2 text-sm text-gray-500">
-            Nikmati pengiriman gratis untuk semua pesanan, tanpa minimum
-            pembelian.
+            Enjoy free shipping on every order—no minimum purchase required.
           </p>
         </motion.div>
         {/* End Icon Block */}
@@ -99,10 +98,10 @@ export default function IconSectionHome() {
             <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
             <path d="M3 3v5h5" />
           </svg>
-          <p className="mt-3 font-medium text-gray-800">30 Hari Pengembalian</p>
+          <p className="mt-3 font-medium text-gray-800">30-Day Returns</p>
           <p className="mt-2 text-sm text-gray-500">
-            Tidak puas? Kembalikan barangnya dalam waktu 30 hari setelah
-            pembelian untuk mendapatkan pengembalian dana penuh atau penukaran.
+            Not satisfied? Return your item within 30 days of purchase for a
+            full refund or exchange.
           </p>
         </motion.div>
         {/* End Icon Block */}

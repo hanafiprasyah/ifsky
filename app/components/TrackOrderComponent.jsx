@@ -50,14 +50,14 @@ export default function TrackOrderComponent() {
       });
       const data = await res.json();
       if (!res.ok) {
-        const msg = data?.error || "Gagal melacak pesanan.";
+        const msg = data?.error || "Failed to track the order.";
         setErrText(msg);
         showToast(msg, "error");
         return;
       }
       router.push(`/invoice?id=${encodeURIComponent(data.order_id)}`);
     } catch (e) {
-      const msg = "Koneksi bermasalah. Coba lagi.";
+      const msg = "Network issue. Please try again.";
       setErrText(msg);
       showToast(msg, "error");
     } finally {
@@ -72,14 +72,14 @@ export default function TrackOrderComponent() {
           <div className="space-y-8">
             <div className="text-center">
               <h2 className="font-medium text-xl text-gray-800">
-                Lacak pesananmu
+                Track your order
               </h2>
             </div>
 
             <div className="space-y-3">
               <div>
                 <h3 className="mb-2 font-medium text-sm text-gray-800">
-                  Cari berdasarkan
+                  Search by
                 </h3>
 
                 {/* Checkbox Grid */}
@@ -116,7 +116,7 @@ export default function TrackOrderComponent() {
                       <rect width="14" height="20" x="5" y="2" rx="2" ry="2" />
                       <path d="M12 18h.01" />
                     </svg>
-                    <span className="block mt-2">Nomor Telepon</span>
+                    <span className="block mt-2">Phone Number</span>
                   </label>
                   {/* End Phone */}
 
@@ -158,7 +158,7 @@ export default function TrackOrderComponent() {
                       <path d="M12 7v10" />
                       <path d="M17 7v10" />
                     </svg>
-                    <span className="block mt-2">Nomor Resi</span>
+                    <span className="block mt-2">Tracking Number</span>
                   </label>
                   {/* End Code QR */}
                 </div>
@@ -169,7 +169,7 @@ export default function TrackOrderComponent() {
                 {/* Input */}
                 <div>
                   <label htmlFor="hs-pro-shtofon" className="sr-only">
-                    {mode === "resi" ? "Nomor Resi" : "Nomor Telepon"}
+                    {mode === "resi" ? "Tracking Number" : "Phone Number"}
                   </label>
 
                   <input
@@ -181,8 +181,8 @@ export default function TrackOrderComponent() {
                     className="py-3 px-4 block w-full bg-white text-gray-500 border-gray-400 rounded-lg sm:text-sm placeholder:text-gray-400 focus:border-cyan-500 focus:ring-cyan-500 disabled:opacity-50 disabled:pointer-events-none"
                     placeholder={
                       mode === "resi"
-                        ? "Nomor Resi (Contoh: JNE123456)"
-                        : "Nomor Telepon (Contoh: 62xxxx)"
+                        ? "Tracking Number (e.g., JNE123456)"
+                        : "Phone Number (e.g., 62xxxx)"
                     }
                   />
                 </div>
@@ -193,14 +193,14 @@ export default function TrackOrderComponent() {
                     type="button"
                     className="hs-tooltip-toggle text-xs text-gray-500 underline underline-offset-4 focus:outline-hidden"
                   >
-                    Dimana lihat Nomor Resi?<sup>*</sup>
+                    Where can I find my tracking number?<sup>*</sup>
                   </button>
                   <span
                     className="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 inline-block absolute invisible z-20 max-w-48 py-1.5 px-2.5 bg-gray-900 text-xs text-white rounded-lg"
                     role="tooltip"
                   >
-                    Nomor pesanan Anda dapat ditemukan di bagian atas email
-                    konfirmasi yang Anda terima saat pembelian.
+                    Your tracking number can be found at the top of the
+                    confirmation email you received after purchase.
                   </span>
                 </div>
               </div>
@@ -221,8 +221,8 @@ export default function TrackOrderComponent() {
                   placeholder="Email"
                 />
                 <p className="text-xs text-slate-500 mt-1">
-                  Email digunakan untuk verifikasi agar pelacak bukan orang
-                  lain.
+                  Your email is used for verification to ensure the tracker
+                  isn’t someone else.
                 </p>
               </div>
               {/* End Input */}
@@ -234,7 +234,7 @@ export default function TrackOrderComponent() {
                 disabled={loading}
                 className="py-3 px-4 w-full transition-all duration-300 ease-in-out cursor-pointer inline-flex justify-center items-center gap-x-2 sm:text-sm font-medium rounded-lg border border-transparent bg-cyan-600 text-white hover:bg-cyan-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-cyan-700"
               >
-                {loading ? "Mencari…" : "Lacak"}
+                {loading ? "Searching…" : "Track"}
               </button>
             </div>
           </div>

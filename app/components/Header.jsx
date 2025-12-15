@@ -155,46 +155,11 @@ function HeaderImpl() {
                     aria-expanded="false"
                     aria-label="Dropdown"
                   >
-                    <span className="relative">Beranda</span>
+                    <span className="relative">Home</span>
                   </Link>
                   {/* End Link Button */}
                 </div>
                 {/* End Home Button Link */}
-
-                {/* About Button Link */}
-                <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block">
-                  {/* Link Button */}
-                  <Link
-                    id="hs-pro-shnnd6"
-                    type="button"
-                    onClick={closeSidebar}
-                    data-hs-overlay="#hs-pro-dmh"
-                    href={"/about"}
-                    aria-current={isAbout ? "page" : undefined}
-                    className={cx(
-                      "hs-dropdown-toggle transition-all duration-300 ease-in-out pointer-events-auto cursor-pointer py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center text-sm text-start rounded-lg underline-offset-4 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden",
-                      isAbout
-                        ? "text-gray-800 underline hover:text-neutral-500"
-                        : "text-gray-500 hover:text-gray-800"
-                    )}
-                    aria-haspopup="menu"
-                    aria-expanded="false"
-                    aria-label="Dropdown"
-                  >
-                    <span className="relative">
-                      Tentang IFSKY
-                      <span className="absolute -top-1 -end-2">
-                        <span className="relative flex">
-                          <span className="animate-ping absolute inline-flex size-full rounded-full bg-cyan-400 opacity-75" />
-                          <span className="relative inline-flex rounded-full size-2 bg-cyan-500" />
-                          <span className="sr-only">Current</span>
-                        </span>
-                      </span>
-                    </span>
-                  </Link>
-                  {/* End Link Button */}
-                </div>
-                {/* End About Button Link */}
 
                 {/* Products Dropdown Link */}
                 <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block">
@@ -212,7 +177,7 @@ function HeaderImpl() {
                     aria-expanded="false"
                     aria-label="Dropdown"
                   >
-                    Produk
+                    Products
                     <svg
                       className="md:hidden hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 ms-auto md:ms-2 shrink-0 size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -240,11 +205,11 @@ function HeaderImpl() {
                       <div className="max-w-lg w-full mx-auto text-center">
                         <p className="mb-2">
                           <span className="py-1 px-2.5 pointer-events-none inline-block border border-gray-500 text-gray-800 text-xs rounded-full">
-                            Telah Hadir
+                            Available Now
                           </span>
                         </p>
                         <p className="mb-5 font-medium text-lg pointer-events-none text-gray-800">
-                          IFSKY Fragrance
+                          IFSKY Fragrance & Perfume
                         </p>
                         <div className="grid grid-cols-3 gap-2 sm:gap-3">
                           <div className="group relative rounded-xl overflow-hidden">
@@ -276,16 +241,40 @@ function HeaderImpl() {
                           </div>
                         </div>
                         <p className="mt-5 text-neutral-600">
-                          Bekerja sama dengan <strong>INFINITY Labs!</strong>
+                          Work together with <strong>INFINITY Labs!</strong>
                         </p>
-                        <div className="mt-5">
+                        <div className="mt-5 flex justify-center">
                           <Link
-                            className="inline-block transition-all duration-300 ease-in-out text-sm text-gray-800 underline underline-offset-4 decoration-1 hover:text-sky-600 focus:outline-hidden focus:text-sky-600"
                             href="/products"
                             onClick={closeSidebar}
                             data-hs-overlay="#hs-pro-dmh"
+                            aria-label="Explore our products"
+                            className="group relative inline-flex items-center justify-center rounded-xl px-5 py-3 text-sm font-semibold text-white bg-gradient-to-r from-sky-500 to-cyan-500 shadow-lg shadow-sky-500/0 hover:shadow-sky-500/30 ring-1 ring-white/10 transition-all duration-300 ease-out hover:-translate-y-0.5 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-cyan-400 motion-reduce:transition-none motion-reduce:transform-none"
                           >
-                            Lihat produknya
+                            {/* Label */}
+                            <span className="relative z-10">Our Products</span>
+
+                            {/* Soft inner ring */}
+                            <span
+                              aria-hidden
+                              className="pointer-events-none absolute inset-0 rounded-xl ring-1 ring-white/20"
+                            />
+
+                            {/* Sheen on hover */}
+                            <span
+                              aria-hidden
+                              className="absolute -inset-px rounded-xl bg-gradient-to-r from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition duration-500 ease-out motion-reduce:transition-none"
+                            />
+
+                            {/* Cosmic sparkles */}
+                            <span
+                              aria-hidden
+                              className="pointer-events-none absolute left-2 top-1 h-1 w-1 rounded-full bg-white/90 shadow-[0_0_8px_2px_rgba(255,255,255,0.9)] group-hover:animate-pulse motion-reduce:animate-none"
+                            />
+                            <span
+                              aria-hidden
+                              className="pointer-events-none absolute right-3 bottom-1 h-1 w-1 rounded-full bg-cyan-200 shadow-[0_0_8px_2px_rgba(165,243,252,0.9)] group-hover:animate-pulse motion-reduce:animate-none"
+                            />
                           </Link>
                         </div>
                       </div>
@@ -333,6 +322,41 @@ function HeaderImpl() {
                   </Link>
                 </div>
                 {/* End Skydreamer Zone */}
+
+                {/* About Button Link */}
+                <div className="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--auto-close:inside] md:inline-block">
+                  {/* Link Button */}
+                  <Link
+                    id="hs-pro-shnnd6"
+                    type="button"
+                    onClick={closeSidebar}
+                    data-hs-overlay="#hs-pro-dmh"
+                    href={"/about"}
+                    aria-current={isAbout ? "page" : undefined}
+                    className={cx(
+                      "hs-dropdown-toggle transition-all duration-300 ease-in-out pointer-events-auto cursor-pointer py-3 md:py-5 md:px-4 lg:px-5 w-full md:w-auto flex items-center text-sm text-start rounded-lg underline-offset-4 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden",
+                      isAbout
+                        ? "text-gray-800 underline hover:text-neutral-500"
+                        : "text-gray-500 hover:text-gray-800"
+                    )}
+                    aria-haspopup="menu"
+                    aria-expanded="false"
+                    aria-label="Dropdown"
+                  >
+                    <span className="relative">
+                      About IFSKY
+                      <span className="absolute -top-1 -end-2">
+                        <span className="relative flex">
+                          <span className="animate-ping absolute inline-flex size-full rounded-full bg-cyan-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full size-2 bg-cyan-500" />
+                          <span className="sr-only">Current</span>
+                        </span>
+                      </span>
+                    </span>
+                  </Link>
+                  {/* End Link Button */}
+                </div>
+                {/* End About Button Link */}
               </div>
             </div>
           </div>

@@ -35,7 +35,7 @@ export default function MatahariDetail() {
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-md sm:rounded-lg"
                             src={Product1}
-                            alt="IFSKY Matahari variance detail"
+                            alt="IFSKY Matahari variant detail"
                             width="auto"
                             height="auto"
                           />
@@ -44,7 +44,7 @@ export default function MatahariDetail() {
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-md sm:rounded-lg"
                             src={Product2}
-                            alt="IFSKY Matahari variance detail"
+                            alt="IFSKY Matahari variant detail"
                             width="auto"
                             height="auto"
                           />
@@ -53,7 +53,7 @@ export default function MatahariDetail() {
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-md sm:rounded-lg"
                             src={Product3}
-                            alt="IFSKY Matahari variance detail"
+                            alt="IFSKY Matahari variant detail"
                             width="auto"
                             height="auto"
                           />
@@ -69,7 +69,7 @@ export default function MatahariDetail() {
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-lg"
                             src={Product1}
-                            alt="IFSKY Matahari variance detail"
+                            alt="IFSKY Matahari variant detail"
                             width="auto"
                             height="auto"
                           />
@@ -78,7 +78,7 @@ export default function MatahariDetail() {
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-lg"
                             src={Product2}
-                            alt="IFSKY Matahari variance detail"
+                            alt="IFSKY Matahari variant detail"
                             width="auto"
                             height="auto"
                           />
@@ -87,7 +87,7 @@ export default function MatahariDetail() {
                           <Image
                             className="bg-neutral-100 pointer-events-none size-full object-cover rounded-lg"
                             src={Product3}
-                            alt="IFSKY Matahari variance detail"
+                            alt="IFSKY Matahari variant detail"
                             width="auto"
                             height="auto"
                           />
@@ -199,7 +199,7 @@ export default function MatahariDetail() {
                             <polyline points="22 7 13.5 15.5 8.5 10.5 2 17" />
                             <polyline points="16 7 22 7 22 13" />
                           </svg>
-                          Lagi Trending! - Terjual 92 botol sejak 1 minggu
+                          Trending! — 92 bottles sold in the last week
                         </p>
                       </div>
 
@@ -220,7 +220,7 @@ export default function MatahariDetail() {
                             <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
                             <circle cx="12" cy="12" r="3" />
                           </svg>
-                          Populer - Lagi diliat 12 orang dalam hari ini
+                          Popular — viewed by 12 people today
                         </p>
                       </div>
 
@@ -242,7 +242,7 @@ export default function MatahariDetail() {
                             <path d="M12 16v-4" />
                             <path d="M12 8h.01" />
                           </svg>
-                          Untuk pria yang membawa inspirasi di setiap langkah.
+                          For men who bring inspiration to every step.
                         </p>
                       </div>
                     </div>
@@ -255,7 +255,7 @@ export default function MatahariDetail() {
               {/* Size */}
               <div className="mt-6">
                 <div className="flex flex-wrap justify-between items-center gap-3">
-                  <h2 className="font-medium text-neutral-800">Ukuran</h2>
+                  <h2 className="font-medium text-neutral-800">Size</h2>
                 </div>
 
                 {/* Grid */}
@@ -333,7 +333,7 @@ export default function MatahariDetail() {
                     <circle cx="12" cy="12" r="10" />
                     <polyline points="12 6 12 12 16 14" />
                   </svg>
-                  Stock terbatas (Pre-order: 3 hari kerja)
+                  Limited stock (Pre-order: 3 business days)
                 </span>
               </div>
               {/* End Stock */}
@@ -348,8 +348,8 @@ export default function MatahariDetail() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
-                    aria-label="Beli di Shopee"
-                    title="Beli di Shopee"
+                    aria-label="Buy on Shopee"
+                    title="Buy on Shopee"
                   >
                     {/* Shopee */}
 
@@ -367,8 +367,8 @@ export default function MatahariDetail() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
-                    aria-label="Beli di Tiktok"
-                    title="Beli di Tiktok"
+                    aria-label="Buy on TikTok"
+                    title="Buy on TikTok"
                   >
                     {/* TiktokShop */}
 
@@ -378,7 +378,7 @@ export default function MatahariDetail() {
                       alt="tiktok"
                     ></Image>
 
-                    <span className="text-neutral-700">Tiktok</span>
+                    <span className="text-neutral-700">TikTok</span>
                   </Link>
 
                   <Link
@@ -388,8 +388,8 @@ export default function MatahariDetail() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="py-3 px-4 w-full inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-[#fff] text-white hover:bg-neutral-200 focus:outline-hidden focus:bg-neutral-300 transition-all duration-300 ease-in-out cursor-pointer"
-                    aria-label="Beli di Tokopedia"
-                    title="Beli di Tokopedia"
+                    aria-label="Buy on Tokopedia"
+                    title="Buy on Tokopedia"
                   >
                     {/* Tokopedia */}
 
@@ -425,9 +425,7 @@ export default function MatahariDetail() {
                     <path d="m9 12 2 2 4-4" />
                   </svg>
                   <div className="grow">
-                    <p className="text-sm text-neutral-800">
-                      Checkout dengan aman
-                    </p>
+                    <p className="text-sm text-neutral-800">Secure checkout</p>
                   </div>
                 </div>
                 {/* End Icon Block */}
@@ -450,9 +448,7 @@ export default function MatahariDetail() {
                     <path d="M3 3v5h5" />
                   </svg>
                   <div className="grow">
-                    <p className="text-sm text-neutral-800">
-                      Garansi pengembalian 30 hari
-                    </p>
+                    <p className="text-sm text-neutral-800">30-Day Returns</p>
                   </div>
                 </div>
                 {/* End Icon Block */}
@@ -468,7 +464,7 @@ export default function MatahariDetail() {
                     aria-expanded="false"
                     aria-controls="hs-pro-shpd-description"
                   >
-                    Deskripsi Produk
+                    Product Description
                     <svg
                       className="hs-accordion-active:hidden block size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -508,10 +504,10 @@ export default function MatahariDetail() {
                     >
                       <div className="pb-6">
                         <p className="text-sm text-neutral-500">
-                          Warm, spicy, woody. Kombinasi pala, kayu manis, dan
-                          oud menciptakan kehangatan yang menggambarkan energi,
-                          semangat, dan tekad. Seperti sinar pertama pagi hari —
-                          membangkitkan semangat baru dan kepercayaan diri.
+                          Warm, spicy, and woody. A blend of nutmeg, cinnamon,
+                          and oud creates a comforting warmth that embodies
+                          energy, drive, and determination—like the first light
+                          of morning, awakening new spirit and confidence.
                         </p>
                       </div>
                     </div>
@@ -597,7 +593,7 @@ export default function MatahariDetail() {
                     aria-expanded="false"
                     aria-controls="hs-pro-shpd-shipping-and-returns"
                   >
-                    Pengembalian
+                    Returns
                     <svg
                       className="hs-accordion-active:hidden block size-4"
                       xmlns="http://www.w3.org/2000/svg"
@@ -637,10 +633,9 @@ export default function MatahariDetail() {
                     >
                       <div className="pb-6">
                         <p className="mt-3 text-sm text-neutral-500">
-                          Pengembalian harus diterima dalam waktu 30 hari
-                          setelah konfirmasi pengiriman. Untuk memproses
-                          pengembalian Anda, barang harus belum dipakai dan
-                          label harus terpasang.
+                          Returns must be received within 30 days of shipment
+                          confirmation. To process your return, the item must be
+                          unused and the label must remain attached.
                         </p>
                       </div>
                     </div>

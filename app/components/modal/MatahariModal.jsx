@@ -76,20 +76,20 @@ export default function MatahariModal() {
                       Matahari Variance
                     </h4>
                     <p className="text-sm py-2 text-gray-600">
-                      Terinspirasi dari sinar pertama yang membangunkan dunia.
-                      Matahari adalah simbol semangat, energi, dan awal baru.
-                      Setiap semprotan menghadirkan aroma segar yang
-                      membangkitkan vitalitas, dipadu kehangatan woody untuk
-                      memberi rasa percaya diri dan optimisme sepanjang hari.
+                      Inspired by the first rays of light that awaken the world.
+                      Matahari is a symbol of spirit, energy, and new
+                      beginnings. Each spritz delivers a fresh, invigorating
+                      brightness layered with warm woody facets to instill
+                      confidence and optimism throughout the day.
                     </p>
                     <p className="text-xs py-2 font-bold text-gray-600">
-                      Karakter: Energik, cerah, penuh motivasi.
+                      Character: Energetic, bright, motivating.
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Rekomendasi: Pria
+                      Recommended for: Men
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Isi: 50 ml
+                      Volume: 50 ml
                     </p>
 
                     {/* Stats */}

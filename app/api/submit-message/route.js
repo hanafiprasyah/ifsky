@@ -131,7 +131,7 @@ export async function POST(req) {
     }
     if (!content_html || String(content_html).length > 8000) {
       return Response.json(
-        { error: "Konten kosong/terlalu panjang" },
+        { error: "Empty/too long content" },
         { status: 400 }
       );
     }
@@ -139,7 +139,7 @@ export async function POST(req) {
     // 3) (Opsional) Verifikasi Turnstile (bypass bila flag OFF)
     const ok = await verifyTurnstile(turnstileToken, ip);
     if (!ok) {
-      return Response.json({ error: "Verifikasi gagal" }, { status: 400 });
+      return Response.json({ error: "Verification failed" }, { status: 400 });
     }
 
     // 4) Rate limit: maks 10 messages / jam / IP
@@ -163,24 +163,21 @@ export async function POST(req) {
       .eq("id", submission_id)
       .single();
     if (e1 || !sub) {
-      return Response.json(
-        { error: "Submission tidak ditemukan" },
-        { status: 404 }
-      );
+      return Response.json({ error: "Submission not found" }, { status: 404 });
     }
 
     // 6) Sanitasi & validasi teks polos minimal
     const safeHtml = sanitizeHtml(content_html);
     const plain = plainTextFromHtml(safeHtml);
     if (!plain) {
-      return Response.json({ error: "Konten kosong" }, { status: 400 });
+      return Response.json({ error: "Empty content" }, { status: 400 });
     }
     // 6b) Profanity guard
     if (hasProfanity(plain)) {
       return Response.json(
         {
           error:
-            "Teks mengandung kata tidak pantas. Mohon perbaiki kata-katanya.",
+            "Text contains inappropriate language. Please adjust your wording.",
         },
         { status: 400 }
       );

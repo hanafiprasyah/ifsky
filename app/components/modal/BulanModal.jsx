@@ -76,20 +76,20 @@ export default function BulanModal() {
                       Bulan Variance
                     </h4>
                     <p className="text-sm py-2 text-gray-600">
-                      Lahir dari ketenangan malam dan kerinduan yang lembut.
-                      Bulan adalah simbol keanggunan dan misteri, dengan
-                      sentuhan floral dan fruitty yang menenangkan, dibalut
-                      aroma musky halus yang meninggalkan kesan romantis. Cocok
-                      menemani momen tenang, syahdu, atau penuh perasaan.
+                      Born of the calm of night and a gentle longing. Bulan is a
+                      symbol of elegance and mystery—soothing floral and fruity
+                      facets wrapped in a soft musky trail that leaves a
+                      romantic impression. Perfect for serene, intimate, and
+                      heartfelt moments.
                     </p>
                     <p className="text-xs py-2 font-bold text-gray-600">
-                      Karakter: Tenang, anggun, romantis.
+                      Character: Calm, elegant, romantic.
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Rekomendasi: Wanita
+                      Recommended for: Women
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Isi: 50 ml
+                      Volume: 50 ml
                     </p>
 
                     {/* Stats */}

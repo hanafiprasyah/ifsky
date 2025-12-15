@@ -19,10 +19,7 @@ export async function POST(req) {
   try {
     const { mode, number, email } = await req.json();
     if (!mode || !number || !email) {
-      return NextResponse.json(
-        { error: "Data tidak lengkap" },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: "Uncomplete datas" }, { status: 400 });
     }
 
     const emailLc = String(email).trim().toLowerCase();
@@ -37,13 +34,13 @@ export async function POST(req) {
     } else if (mode === "resi") {
       query = query.eq("tracking_number", String(number).trim());
     } else {
-      return NextResponse.json({ error: "Mode tidak valid" }, { status: 400 });
+      return NextResponse.json({ error: "Invalid Mode" }, { status: 400 });
     }
 
     const { data, error } = await query.limit(1).single();
     if (error || !data) {
       return NextResponse.json(
-        { error: "Pesanan tidak ditemukan atau email tidak cocok." },
+        { error: "Receipt not found or invalid email." },
         { status: 404 }
       );
     }
@@ -51,7 +48,7 @@ export async function POST(req) {
     return NextResponse.json({ ok: true, order_id: data.id });
   } catch (e) {
     return NextResponse.json(
-      { error: "Terjadi kesalahan server." },
+      { error: "Server error occured" },
       { status: 500 }
     );
   }

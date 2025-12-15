@@ -5,7 +5,7 @@ export const metadata = {
 
 import { createClient } from "@supabase/supabase-js";
 
-export const revalidate = 3600; // revalidate listing setiap 1 jam
+export const revalidate = 3600; // revalidate listing every 1 hour
 
 export default async function CareerPage() {
   const supabase = createClient(
@@ -31,11 +31,11 @@ export default async function CareerPage() {
           {/* Title */}
           <div className="max-w-3xl mb-10 lg:mb-14">
             <h2 className="text-neutral-600 font-semibold text-2xl md:text-4xl md:leading-tight">
-              Jelajahi Peluangmu
+              Explore Opportunities
             </h2>
             <p className="mt-1 text-neutral-500">
-              Kami mencari orang yang loyalitas, integritas dan profesional
-              untuk bergabung bersama tim IFSKY Infinity.
+              We're looking for people with loyalty, integrity, and
+              professionalism to join the IFSKY Infinity team.
             </p>
           </div>
           {/* End Title */}
@@ -46,23 +46,23 @@ export default async function CareerPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div>
                 <h3 className="text-xl md:text-3xl font-medium text-neutral-700">
-                  Lowongan Terbuka
+                  Open Positions
                 </h3>
                 <p className="mt-2 text-sm text-neutral-500">
-                  {listing.length} posisi
+                  {listing.length} positions
                 </p>
               </div>
 
               <div className="flex flex-col gap-y-3">
                 {error && (
                   <div className="text-sm text-red-600">
-                    Gagal memuat lowongan.
+                    Failed to load job openings.
                   </div>
                 )}
 
                 {listing.length === 0 && !error && (
                   <div className="text-sm text-neutral-500">
-                    Tidak ada lowongan saat ini.
+                    No openings at the moment.
                   </div>
                 )}
 
@@ -92,7 +92,7 @@ export default async function CareerPage() {
 
                     <div className="flex items-center gap-x-1">
                       <span className="text-sm font-medium text-sky-700 opacity-0 lg:group-hover:opacity-100 lg:transition-opacity lg:duration-300 lg:group-focus:opacity-100">
-                        Lamar
+                        Apply
                       </span>
                       <svg
                         className="shrink-0 size-5 text-neutral-600"

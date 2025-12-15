@@ -20,11 +20,11 @@ export default function AboutPage() {
           {/* Heading */}
           <div className="mb-10 max-w-5xl mx-auto text-center">
             <h1 className="font-bold text-gray-800 text-4xl md:text-5xl">
-              Semesta IFSKY
+              The IFSKY Universe
             </h1>
 
             <p className="mt-5 text-sm md:text-lg text-neutral-500 font-light italic">
-              bagian kecil dari langit.
+              a piece of the sky.
             </p>
           </div>
           {/* End Heading */}
@@ -37,7 +37,7 @@ export default function AboutPage() {
               width="auto"
               height="auto"
               quality={100}
-              alt="IFSKY tentang kami"
+              alt="IFSKY — About Us"
             />
           </div>
         </div>
@@ -48,25 +48,24 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 lg:gap-10">
           <div className="lg:pe-[20%] ">
             <h2 className="font-semibold text-2xl md:text-3xl text-gray-800">
-              IFSKY bukan hanya membuatmu wangi, tapi membuatmu percaya pada
-              impianmu dan berani bermimpi.
+              IFSKY is more than a fragrance—it inspires you to believe in your
+              dreams and dare to pursue them.
             </h2>
           </div>
           {/* End Col */}
 
           <div className="space-y-5">
             <p className="text-gray-500 text-sm md:text-lg">
-              Ada yang ingin dikenal, ada yang ingin diingat, ada yang ingin
-              merasakan kebebasan. Dari situlah IFSKY hadir sebagai wujud nyata
-              dari mimpi yang tidak lagi hanya disimpan terpendam, tetapi
-              diwujudkan menjadi karya yang bisa dirasakan oleh banyak orang.
+              Some want to be known, some to be remembered, and some to feel
+              free. From there, IFSKY was born as a tangible expression of
+              dreams—no longer kept hidden, but brought to life as a creation
+              that many can experience.
             </p>
             <p className="text-gray-500 text-sm md:text-lg">
-              Nama <span className="font-bold">IFSKY</span> dipilih karena
-              langit adalah tempat semua mimpi digantungkan. Tak terbatas, luas,
-              dan penuh harapan. Sama seperti impian yang melahirkan brand ini
-              bahwa dari sebuah mimpi kecil, bisa tumbuh sesuatu yang besar dan
-              berarti.
+              The name <span className="font-bold">IFSKY</span> was chosen
+              because the sky is where all dreams are hung—boundless, vast, and
+              full of hope. Just like the aspiration that gave birth to this
+              brand: from a small dream, something big and meaningful can grow.
             </p>
           </div>
           {/* End Col */}
@@ -78,23 +77,22 @@ export default function AboutPage() {
       <div className="w-full max-w-6xl pb-8 mx-auto pt-8 px-4 sm:px-6 lg:px-8">
         <div className="space-y-8">
           <h1 className="text-2xl font-medium text-gray-800">
-            Ruang digital tempat energi, harapan, dan impian.
+            A digital space for energy, hope, and dreams.
           </h1>
 
           <p className="text-sm md:text-lg text-gray-500">
-            IFSKY menghadirkan sebuah ekosistem unik melalui website resmi ini,
-            tempat setiap customer yang atau yang kami panggil <i>Skydreamer</i>{" "}
-            bisa menuliskan impian mereka dan melihatnya setiap saat sebagai
-            reminder diri dan motivasi atas impian tersebut. Di sana, setiap
-            mimpi menjadi bagian dari semesta IFSKY,{" "}
-            <b>ruang digital tempat energi, harapan, dan impian</b>.
+            IFSKY presents a unique ecosystem through this official website,
+            where every customer—whom we call <i>Skydreamers</i>—can write their
+            dreams and revisit them anytime as a personal reminder and
+            motivation. There, each dream becomes part of the IFSKY universe, a{" "}
+            <b>digital space for energy, hope, and dreams</b>.
           </p>
 
           <div className="w-full h-80 bg-gray-200 rounded-lg">
             <Image
               className="size-full pointer-events-none object-cover rounded-lg"
               src={Pic5}
-              alt="Ruang digital tempat energi, harapan, dan impian."
+              alt="A digital space for energy, hope, and dreams."
               width="auto"
               height="auto"
             />
@@ -102,17 +100,15 @@ export default function AboutPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <h2 className="font-medium text-2xl text-gray-800">
-              Setiap aroma diciptakan untuk menginspirasi setiap orang agar
-              berani bermimpi dan mewujudkannya.
+              Every scent is crafted to inspire you to dream—and make it happen.
             </h2>
 
             <p className="text-sm md:text-lg text-gray-500">
-              IFSKY bukan sekadar wangi. Ia adalah pengingat yang kamu
-              kenakan—tentang tujuan, proses, dan keberanian untuk melangkah. Di
-              ifsky.id, kamu bisa menuliskan impian, menyimpannya sebagai
-              pengingat, dan meninjau progresnya. Setiap varian mewakili fase
-              hidup: energi (Matahari), ketenangan (Bulan), dan kebebasan
-              (Langit).
+              IFSKY isn’t just a scent. It’s a wearable reminder—of purpose,
+              process, and the courage to move forward. On ifsky.id, you can
+              write your dreams, save them as reminders, and review your
+              progress. Each variant represents a life phase: energy (Matahari),
+              calm (Bulan), and freedom (Langit).
             </p>
           </div>
 
@@ -121,8 +117,7 @@ export default function AboutPage() {
               <Image
                 className="size-full pointer-events-none object-cover rounded-lg"
                 src={Pic4}
-                alt="IFSKY: Setiap aroma diciptakan untuk menginspirasi setiap orang agar
-              berani bermimpi dan mewujudkannya."
+                alt="IFSKY: Every scent is crafted to inspire you to dream and make it happen."
                 width="auto"
                 height="auto"
               />
@@ -132,21 +127,20 @@ export default function AboutPage() {
               <Image
                 className="size-full pointer-events-none object-cover rounded-lg"
                 src={Pic3}
-                alt="IFSK: Setiap aroma diciptakan untuk menginspirasi setiap orang agar
-              berani bermimpi dan mewujudkannya."
+                alt="IFSKY: Every scent is crafted to inspire you to dream and make it happen."
                 width="auto"
                 height="auto"
               />
             </div>
           </div>
 
-          <p className="text-2xl text-gray-800">⁠Keunggulan Utama IFSKY</p>
+          <p className="text-2xl text-gray-800">Key Advantages of IFSKY</p>
 
           <div className="w-full h-80 bg-gray-200 rounded-lg">
             <Image
               className="size-full pointer-events-none object-cover rounded-lg"
               src={Pic2}
-              alt="⁠Keunggulan Utama IFSKY"
+              alt="Key Advantages of IFSKY"
               width="auto"
               height="auto"
             />
@@ -156,50 +150,49 @@ export default function AboutPage() {
             <div className="ps-5">
               <div className="relative before:absolute before:top-2.5 before:-start-5 before:w-3 before:h-[1.5px] before:bg-gray-800">
                 <h4 className="font-medium text-lg text-gray-800">
-                  Aroma yang Bercerita
+                  Scents that Tell a Story
                 </h4>
               </div>
               <p className="text-sm text-gray-500">
-                Setiap varian (Matahari, Bulan, Langit) mewakili fase hidup dan
-                emosi manusia, energi, ketenangan, dan kebebasan.
+                Each variant (Matahari, Bulan, Langit) represents life phases
+                and human emotions—energy, calm, and freedom.
               </p>
             </div>
 
             <div className="ps-5">
               <div className="relative before:absolute before:top-2.5 before:-start-5 before:w-3 before:h-[1.5px] before:bg-gray-800">
                 <h4 className="font-medium text-lg text-gray-800">
-                  Makna Personal & Filosofis
+                  Personal & Philosophical Meaning
                 </h4>
               </div>
               <p className="text-sm text-gray-500">
-                IFSKY bukan sekadar produk, tapi simbol perjalanan menuju
-                impian.
+                IFSKY is not just a product; it’s a symbol of the journey toward
+                your dreams.
               </p>
             </div>
 
             <div className="ps-5">
               <div className="relative before:absolute before:top-2.5 before:-start-5 before:w-3 before:h-[1.5px] before:bg-gray-800">
                 <h4 className="font-medium text-lg text-gray-800">
-                  Ruang Digital Impian
+                  Digital Dream Space
                 </h4>
               </div>
               <p className="text-sm text-gray-500">
-                Website ifsky.id menyediakan dashboard bagi customer untuk
-                menulis, menyimpan, dan memantau impian mereka, menciptakan
-                koneksi emosional yang nyata antara aroma, harapan, dan
-                kehidupan.
+                The ifsky.id website provides a dashboard for customers to
+                write, save, and track their dreams, creating a genuine
+                emotional connection between scent, hope, and life.
               </p>
             </div>
 
             <div className="ps-5">
               <div className="relative before:absolute before:top-2.5 before:-start-5 before:w-3 before:h-[1.5px] before:bg-gray-800">
                 <h4 className="font-medium text-lg text-gray-800">
-                  Premium & Unisex{" "}
+                  Premium & Unisex
                 </h4>
               </div>
               <p className="text-sm text-gray-500">
-                Terbuat dari bahan berkualitas tinggi, tahan seharian, cocok
-                untuk pria dan wanita.
+                Made with high-quality ingredients, lasts all day, and suitable
+                for men and women.
               </p>
             </div>
           </div>
@@ -208,18 +201,17 @@ export default function AboutPage() {
             <Image
               className="size-full object-cover rounded-lg"
               src={Pic1}
-              alt="IFSKY adalah parfum yang bukan hanya membuatmu wangi, tapi membuatmu
-            percaya pada impianmu dan berani bermimpi."
+              alt="IFSKY is more than a fragrance—it inspires you to believe in your dreams and dare to pursue them."
               width="auto"
               height="auto"
             />
           </div>
 
-          <h2 className="font-medium text-gray-800">Sekali lagi...</h2>
+          <h2 className="font-medium text-gray-800">Once again…</h2>
 
           <h1 className="text-2xl font-bold text-gray-800">
-            IFSKY adalah parfum yang bukan hanya membuatmu wangi, tapi membuatmu
-            percaya pada impianmu dan berani bermimpi.
+            IFSKY is more than a fragrance—it inspires you to believe in your
+            dreams and dare to pursue them.
           </h1>
         </div>
       </div>

@@ -76,20 +76,20 @@ export default function LangitModal() {
                       Langit Variance
                     </h4>
                     <p className="text-sm py-2 text-gray-600">
-                      Terinspirasi dari luasnya cakrawala dan kebebasan tanpa
-                      batas. Langit adalah simbol mimpi tinggi dan visi besar.
-                      Dengan aroma vanilla, green notes, dan nuansa ozonic,
-                      parfum ini memberi sensasi lega, segar, dan menghadirkan
-                      ruang untuk bernafas bebas.
+                      Inspired by the expanse of the horizon and boundless
+                      freedom. Langit symbolizes high aspirations and a bold
+                      vision. With airy ozonic nuances, green facets, and a soft
+                      vanilla trail, this fragrance feels open and
+                      fresh—creating space to breathe freely.
                     </p>
                     <p className="text-xs py-2 font-bold text-gray-600">
-                      Karakter: Segar, luas, visioner.
+                      Character: Fresh, expansive, visionary.
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Rekomendasi: Pria dan Wanita (Unisex)
+                      Recommended for: Men and Women (Unisex)
                     </p>
                     <p className="text-xs font-medium text-gray-600">
-                      Isi: 50 ml
+                      Volume: 50 ml
                     </p>
 
                     {/* Stats */}

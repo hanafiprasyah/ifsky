@@ -36,7 +36,7 @@ export default function SliderHome() {
                     Matahari
                   </h2>
                   <p className="mt-3 text-sm md:text-base text-white">
-                    Memberikan karakter yang energik, cerah dan penuh motivasi.
+                    Energetic, bright, and motivating.
                   </p>
                 </div>
               </div>
@@ -62,7 +62,7 @@ export default function SliderHome() {
                     Bulan
                   </h2>
                   <p className="mt-3 text-sm md:text-base text-white">
-                    Lahir dari ketenangan malam dan kerinduan yang lembut.
+                    Born of the calm of night and a gentle longing.
                   </p>
                 </div>
               </div>
@@ -88,8 +88,8 @@ export default function SliderHome() {
                     Langit
                   </h2>
                   <p className="mt-3 text-sm md:text-base text-white">
-                    Luasnya cakrawala dan kebebasan tanpa batas untuk memberikan
-                    ruang bernafas bebas.
+                    The vast horizon and boundless freedom—creating space to
+                    breathe freely.
                   </p>
                 </div>
               </div>

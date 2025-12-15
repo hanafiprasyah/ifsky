@@ -218,7 +218,7 @@ function CloudItem({
   return (
     <button
       ref={ref}
-      aria-label={`Buka pesan dari ${msg.name || "Pengirim"}`}
+      aria-label={`Open message from ${msg.name || "Sender"}`}
       onClick={() => onOpen?.(msg)}
       className="absolute focus:outline-none group cursor-pointer transition-all duration-300 ease-in-out"
       style={{
@@ -344,7 +344,7 @@ function CloudModal({ open, onClose, msg }) {
               id="hs-pro-pycdcdm-label"
               className="font-semibold tracking-wide text-white drop-shadow-sm"
             >
-              Mimpi dari {msg?.name || "Pengirim"}
+              Dream by {msg?.name || "Sender"}
             </h3>
             <div
               className="absolute top-3 end-3"
@@ -431,14 +431,14 @@ export default function SkydreamerScene() {
           cache: "no-store",
         });
         const data = await res.json();
-        if (!res.ok) throw new Error(data?.error || "Gagal memuat");
+        if (!res.ok) throw new Error(data?.error || "Failed to load");
         if (!abort) {
           setMessages(Array.isArray(data) ? data : []);
           setLoading(false);
         }
       } catch (e) {
         if (!abort) {
-          setError("Tidak bisa memuat pesan");
+          setError("Unable to load messages");
           setLoading(false);
         }
       }
@@ -494,7 +494,7 @@ export default function SkydreamerScene() {
                     : "text-sky-700 hover:bg-sky-100 dark:text-sky-200/90 dark:hover:bg-white/10"
                 }`}
               >
-                Tenang
+                Calm
               </button>
               <button
                 type="button"
@@ -506,7 +506,7 @@ export default function SkydreamerScene() {
                     : "text-sky-700 hover:bg-sky-100 dark:text-sky-200/90 dark:hover:bg-white/10"
                 }`}
               >
-                Sedang
+                Moderate
               </button>
               <button
                 type="button"
@@ -518,7 +518,7 @@ export default function SkydreamerScene() {
                     : "text-sky-700 hover:bg-sky-100 dark:text-sky-200/90 dark:hover:bg-white/10"
                 }`}
               >
-                Berangin
+                Windy
               </button>
             </div>
 
@@ -536,12 +536,12 @@ export default function SkydreamerScene() {
         <div className="relative" style={{ height: `${skyHeight}px` }}>
           {loading && (
             <div className="absolute inset-0 flex items-center justify-center text-slate-500">
-              Memuat awan…
+              Loading clouds…
             </div>
           )}
           {!loading && messages.length === 0 && (
             <div className="absolute inset-0 flex items-center justify-center text-slate-500">
-              Belum ada pesan.
+              No messages yet.
             </div>
           )}
           {/* Newest at bottom (index 0) → older higher */}
@@ -565,7 +565,7 @@ export default function SkydreamerScene() {
           <div className="flex justify-end">
             <a
               href="/skydreamer/seeding-your-dream/"
-              aria-label="Mulai menulis kesan di Skydreamer"
+              aria-label="Start writing in Skydreamer"
               className={`group relative isolate inline-flex items-center justify-center rounded-full h-14 w-14 sm:h-16 sm:w-16 bg-sky-600 text-neutral-50 font-semibold shadow-lg ring-1 ring-sky-700/50 transition duration-300 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-sky-500 pointer-events-auto ${
                 reduced
                   ? ""
@@ -617,7 +617,7 @@ export default function SkydreamerScene() {
                     : "opacity-0 translate-x-2 group-hover:opacity-100 group-hover:translate-x-0"
                 }`}
               >
-                Tulis Kesan
+                Write your dream
               </span>
             </a>
           </div>

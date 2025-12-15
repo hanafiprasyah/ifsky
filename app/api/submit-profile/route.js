@@ -84,22 +84,19 @@ export async function POST(req) {
 
     // 2) Basic validation
     if (!name || String(name).trim().length < 2) {
-      return Response.json({ error: "Nama tidak valid" }, { status: 400 });
+      return Response.json({ error: "Invalid Name" }, { status: 400 });
     }
     if (!isValidEmail(email)) {
-      return Response.json({ error: "Email tidak valid" }, { status: 400 });
+      return Response.json({ error: "Invalid Email" }, { status: 400 });
     }
     if (!isValidPhone(phone)) {
-      return Response.json(
-        { error: "Nomor HP/WA tidak valid" },
-        { status: 400 }
-      );
+      return Response.json({ error: "Invalid Phone" }, { status: 400 });
     }
 
     // 3) (Opsional) Turnstile – aktif hanya jika ENV mengizinkan
     const verified = await verifyTurnstile(turnstileToken, ip);
     if (!verified) {
-      return Response.json({ error: "Verifikasi gagal" }, { status: 400 });
+      return Response.json({ error: "Verification failed" }, { status: 400 });
     }
 
     // 4) Rate limit sederhana: max 5 submissions / jam / IP
@@ -114,7 +111,7 @@ export async function POST(req) {
     if (eCount) throw eCount;
     if ((subCount || 0) >= 5) {
       return Response.json(
-        { error: "Terlalu sering, coba lagi nanti" },
+        { error: "Limited submit. Please try again later" },
         { status: 429 }
       );
     }

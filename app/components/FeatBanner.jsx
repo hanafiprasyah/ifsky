@@ -65,13 +65,13 @@ export default function FeatBanner() {
         {...inViewProps}
       >
         <h1 className="font-semibold text-neutral-900 text-5xl md:text-6xl">
-          <span className="text-sky-700">IFSKY Fragrance</span> — bagian kecil
-          dari langit.
+          <span className="text-sky-700">IFSKY Fragrance</span> — a piece of the
+          sky.
         </h1>
         <div className="max-w-4xl">
           <p className="mt-5 text-neutral-500 font-light text-sm md:text-lg">
-            IFSKY adalah parfum yang bukan hanya membuatmu wangi, tapi membuatmu
-            percaya pada impianmu dan berani bermimpi.
+            IFSKY is more than a fragrance—it inspires you to believe in your
+            dreams and dare to pursue them.
           </p>
         </div>
       </motion.div>
@@ -105,15 +105,15 @@ export default function FeatBanner() {
             variants={itemText}
           >
             <h3 className="font-medium text-xl px-4 md:text-3xl text-sky-700">
-              Kehangatan Matahari
+              Matahari — Radiant Warmth
             </h3>
 
             <p className="mt-3 sm:mt-5 text-sm px-4 sm:text-base text-gray-500">
-              Terinspirasi dari sinar pertama yang membangunkan dunia. Matahari
-              adalah simbol semangat, energi dan awal baru. Setiap semprotan
-              hadirkan aroma segar yang membangkitkan vitalitas, dipadu
-              kehangatan woody untuk memberi rasa percaya diri dan optimisme
-              sepanjang hari.
+              Inspired by the first rays of light that awaken the world.
+              Matahari is a symbol of spirit, energy, and new beginnings. Each
+              spritz delivers a fresh, invigorating brightness layered with warm
+              woody facets to instill confidence and optimism throughout the
+              day.
             </p>
           </motion.div>
           {/* End Col */}
@@ -146,15 +146,14 @@ export default function FeatBanner() {
             variants={itemText}
           >
             <h3 className="font-medium text-xl px-4 md:text-3xl text-sky-700">
-              Bulan Romantis
+              Bulan — Romantic Allure
             </h3>
 
             <p className="mt-3 sm:mt-5 text-sm px-4 sm:text-base text-gray-500">
-              Lahir dari ketenangan malam dan kerinduan yang lembut. Bulan
-              adalah simbol keanggunan dan misteri. Dengan sentuhan floral dan
-              fruitty yang menenangkan, dibalut aroma musky yang halus yang
-              meninggalkan kesan romantis. Cocok menemani momen tenang, syahdu
-              atau penuh perasaan.
+              Born of the calm of night and a gentle longing. Bulan is a symbol
+              of elegance and mystery—soothing floral and fruity facets wrapped
+              in a soft musky trail that leaves a romantic impression. Perfect
+              for serene, intimate, and heartfelt moments.
             </p>
           </motion.div>
           {/* End Col */}
@@ -187,14 +186,14 @@ export default function FeatBanner() {
             variants={itemText}
           >
             <h3 className="font-medium text-xl px-4 md:text-3xl text-sky-700">
-              Birunya Langit
+              Langit — Blue Sky Freedom
             </h3>
 
             <p className="mt-3 sm:mt-5 text-sm px-4 sm:text-base text-gray-500">
-              Terinspirasi dari luasnya cakrawala dan kebebasan tanpa batas.
-              Langit adalah simbol mimpi tinggi dan visi besar. Dengan aroma
-              Vanilla, Green Notes dan Nuansa Ozonic. Parfum ini memberi sensasi
-              lega, segar dan menghadirkan ruang untuk bernafas bebas.
+              Inspired by the expanse of the horizon and boundless freedom.
+              Langit symbolizes high aspirations and a bold vision. With airy
+              ozonic nuances, green facets, and a soft vanilla trail, this
+              fragrance feels open and fresh—creating space to breathe freely.
             </p>
           </motion.div>
           {/* End Col */}

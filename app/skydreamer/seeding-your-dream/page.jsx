@@ -38,7 +38,7 @@ function escapeRegExp(s) {
 }
 
 const BAD_WORDS_ID = [
-  // Indonesia (ringkas; tambahkan sesuai kebutuhan)
+  // Indonesian (concise; extend as needed)
   "anjing",
   "asu",
   "bangsat",
@@ -54,7 +54,7 @@ const BAD_WORDS_ID = [
   "idiot",
 ];
 const BAD_WORDS_EN = [
-  // Inggris (umum)
+  // English (common)
   "fuck",
   "shit",
   "bitch",
@@ -66,7 +66,7 @@ const BAD_WORDS_EN = [
   "moron",
 ];
 const BAD_WORDS = Array.from(new Set([...BAD_WORDS_ID, ...BAD_WORDS_EN]));
-// Unicode-safe word boundary: bukan huruf/angka/_ di kiri/kanan
+// Unicode-safe word boundary: no letter/number/_ on the left/right
 const PROFANITY_RE = new RegExp(
   `(?<![\\\p{L}\\\p{N}_])(${BAD_WORDS.map(escapeRegExp).join(
     "|"
@@ -131,11 +131,11 @@ export default function GuestbookPage() {
     setError1("");
 
     if (website) {
-      setError1("Terjadi kesalahan.");
+      setError1("An error occurred.");
       return;
     } // honeypot trip
     if (!name || name.trim().length < 2) {
-      setError1("Nama wajib diisi");
+      setError1("Name is required");
       return;
     }
 
@@ -154,13 +154,13 @@ export default function GuestbookPage() {
           website: website || "",
           formStartedAt:
             sessionStorage.getItem(STORAGE_KEY_STARTED) || Date.now(),
-          turnstileToken: "", // sementara kosong; verifikasi di server di-bypass via FLAG
+          turnstileToken: "", // temporarily empty; verification bypassed on server via FLAG
         }),
       });
 
       const data = await res.json();
       if (!res.ok) {
-        setError1(data?.error || "Gagal menyimpan. Coba lagi.");
+        setError1(data?.error || "Failed to save. Please try again.");
         return;
       }
 
@@ -169,10 +169,10 @@ export default function GuestbookPage() {
         sessionStorage.setItem(STORAGE_KEY_ID, submission_id);
         setStep(2);
       } else {
-        setError1("Gagal mendapatkan ID pengajuan");
+        setError1("Failed to obtain submission ID");
       }
     } catch (e) {
-      setError1("Koneksi bermasalah. Coba lagi.");
+      setError1("Network issue. Please try again.");
     } finally {
       setLoading1(false);
     }
@@ -184,7 +184,7 @@ export default function GuestbookPage() {
 
     const submission_id = sessionStorage.getItem(STORAGE_KEY_ID);
     if (!submission_id) {
-      setError2("Sesi tidak ditemukan. Mohon isi data diri dulu.");
+      setError2("Session not found. Please complete your profile first.");
       setStep(1);
       return;
     }
@@ -193,14 +193,14 @@ export default function GuestbookPage() {
     const content_text = stripHtml(editorHtml).slice(0, 8000);
 
     if (!content_text) {
-      setError2("Kesan & pesan masih kosong.");
+      setError2("Message is still empty.");
       return;
     }
 
     // Profanity filter (client-side). Server will re-check as well.
     if (hasProfanity(content_text)) {
       setError2(
-        "Teks mengandung kata tidak pantas. Mohon perbaiki kata-katanya."
+        "Text contains inappropriate language. Please adjust your wording."
       );
       return;
     }
@@ -223,21 +223,21 @@ export default function GuestbookPage() {
       });
       const data = await res.json();
       if (!res.ok) {
-        setError2(data?.error || "Gagal menyimpan pesan. Coba lagi.");
+        setError2(data?.error || "Failed to save message. Please try again.");
         return;
       }
 
-      // Berhasil → bersihkan & redirect ke homepage
+      // Success → clean up & redirect to homepage
       sessionStorage.removeItem(STORAGE_KEY_ID);
       sessionStorage.removeItem(STORAGE_KEY_STARTED);
       // sessionStorage.removeItem(STORAGE_KEY_PROFILE_SNAPSHOT);
-      sessionStorage.removeItem(STORAGE_KEY_TOKEN); // ← PENTING
+      sessionStorage.removeItem(STORAGE_KEY_TOKEN); // ← IMPORTANT
       setEditorHtml("");
       setEditorDelta(null);
-      // Info kecil sebelum redirect (opsional)
+      // Small info before redirect (optional)
       setTimeout(() => router.push("/skydreamer"), 250);
     } catch (e) {
-      setError2("Koneksi bermasalah. Coba lagi.");
+      setError2("Network issue. Please try again.");
     } finally {
       setLoading2(false);
     }
@@ -246,7 +246,7 @@ export default function GuestbookPage() {
   return (
     <main className="min-h-[80vh] mx-auto max-w-2xl px-4 py-10 text-neutral-700 ">
       <h1 className="text-2xl font-semibold mb-6 text-neutral-800 ">
-        Isi mimpimu pada angkasa IFSKY
+        Write your dream into the IFSKY sky
       </h1>
 
       {/* Progress indicator */}
@@ -275,11 +275,11 @@ export default function GuestbookPage() {
           />
           <div>
             <label className="block text-sm font-medium mb-1 text-neutral-700">
-              Nama Lengkap
+              Full Name
             </label>
             <input
               className="w-full text-sm rounded-xl border p-3"
-              placeholder="Nama akan ditampilkan pada awan"
+              placeholder="Your name will appear on a cloud"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -287,11 +287,11 @@ export default function GuestbookPage() {
           </div>
           <div>
             <label className="block text-sm font-medium mb-1 text-neutral-700">
-              Nomor WA/HP
+              WhatsApp/Phone Number
             </label>
             <input
               className="w-full text-sm rounded-xl border p-3"
-              placeholder="Pakai nomor WA dan telpon yang aktif"
+              placeholder="Use an active WhatsApp/phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
             />
@@ -303,7 +303,7 @@ export default function GuestbookPage() {
             <input
               type="email"
               className="w-full text-sm rounded-xl border p-3"
-              placeholder="Email tidak akan disebar"
+              placeholder="Your email will not be shared"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -325,7 +325,7 @@ export default function GuestbookPage() {
             disabled={loading1}
             className="w-full rounded-xl mt-4 cursor-pointer duration-300 ease-in-out transition-all bg-sky-600 text-white py-3 font-medium hover:bg-sky-700 disabled:opacity-60"
           >
-            {loading1 ? "Menyimpan…" : "Lanjutkan mimpimu"}
+            {loading1 ? "Saving…" : "Continue your dream"}
           </button>
 
           {error1 && <p className="text-red-600 text-sm">{error1}</p>}
@@ -344,7 +344,7 @@ export default function GuestbookPage() {
           />
           <div>
             <label className="block text-lg font-medium mb-2 text-neutral-700 ">
-              Apa yang sedang kamu mimpikan? Ketik dan ceritakan ke awan..
+              What are you dreaming of? Type and tell the cloud…
             </label>
             <ReactQuill
               ref={quillRef}
@@ -360,7 +360,7 @@ export default function GuestbookPage() {
               className="bg-white mt-4 rounded-xl"
             />
             <p className="text-sm text-neutral-600 mt-4">
-              Tips: Jangan gunakan kata kasar ya 🙏
+              Tip: Please avoid offensive language 🙏
             </p>
           </div>
           <div className="flex mt-12 items-center gap-8">
@@ -387,14 +387,14 @@ export default function GuestbookPage() {
                   <path d="M19 12H5" />
                 </svg>
               </span>
-              Kembali
+              Back
             </button>
             <button
               type="submit"
               disabled={loading2}
               className="rounded-lg cursor-pointer duration-300 ease-in-out transition-all bg-sky-600 text-white px-5 py-2 font-medium hover:bg-sky-700 disabled:opacity-60"
             >
-              {loading2 ? "Mengirim…" : "Kirim ke awan"}
+              {loading2 ? "Sending…" : "Send to the cloud"}
             </button>
           </div>
           {error2 && <p className="text-red-600 text-sm">{error2}</p>}

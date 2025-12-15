@@ -18,10 +18,7 @@ export async function GET(_req, { params }) {
       .eq("id", id)
       .single();
     if (error || !order)
-      return NextResponse.json(
-        { error: "Order tidak ditemukan" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Order not found" }, { status: 404 });
 
     const { data: events } = await supabase
       .from("order_events")
@@ -42,6 +39,6 @@ export async function GET(_req, { params }) {
       events: events || [],
     });
   } catch (e) {
-    return NextResponse.json({ error: "Terjadi kesalahan" }, { status: 500 });
+    return NextResponse.json({ error: "Error occured" }, { status: 500 });
   }
 }

@@ -30,7 +30,7 @@ export default function HelpHero() {
       <div className="py-10 lg:py-20 w-full max-w-2xl px-4 sm:px-6 lg:px-8 mx-auto">
         <div className="text-center mb-5">
           <h1 className="font-semibold text-3xl lg:text-4xl text-white">
-            Dapatkan Bantuan
+            Get Help
           </h1>
         </div>
 
@@ -57,7 +57,7 @@ export default function HelpHero() {
             ref={inputRef}
             type="text"
             className="py-3 md:py-4 pe-4 ps-10 block w-full text-gray-700 bg-white border-transparent rounded-lg sm:text-sm placeholder:text-gray-400 focus:outline-hidden focus:border-transparent focus:ring-0 disabled:opacity-50 disabled:pointer-events-none"
-            placeholder="Apa yang dapat kami bantu?"
+            placeholder="How can we help you?"
             value={q}
             onChange={(e) => setQ(e.target.value)}
             onKeyDown={onKeyDown}
@@ -70,10 +70,10 @@ export default function HelpHero() {
                 inputRef.current?.focus();
               }}
               className="inline-flex shrink-0 justify-center items-center size-6 rounded-full text-gray-500 hover:text-blue-600 focus:outline-hidden focus:text-blue-600"
-              aria-label="Hapus"
-              title="Hapus"
+              aria-label="Clear"
+              title="Clear"
             >
-              <span className="sr-only">Hapus</span>
+              <span className="sr-only">Clear</span>
               <svg
                 className="shrink-0 size-4"
                 xmlns="http://www.w3.org/2000/svg"

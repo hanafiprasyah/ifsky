@@ -25,10 +25,7 @@ export async function GET(_req, { params }) {
       .single();
 
     if (errOrder || !order) {
-      return NextResponse.json(
-        { error: "Order tidak ditemukan" },
-        { status: 404 }
-      );
+      return NextResponse.json({ error: "Order not found" }, { status: 404 });
     }
 
     // Items (jika ada)
@@ -51,7 +48,7 @@ export async function GET(_req, { params }) {
       events: events || [],
     });
   } catch (e) {
-    return NextResponse.json({ error: "Terjadi kesalahan" }, { status: 500 });
+    return NextResponse.json({ error: "An error occurred" }, { status: 500 });
   }
 }
 
@@ -78,17 +75,17 @@ function labelVariant(v) {
 const VARIANT_INFO = {
   MATAHARI: {
     title: "Matahari",
-    tagline: "Citrus segar, cerah, enerjik",
-    notes: "Top: bergamot, lemon · Heart: neroli · Base: musk lembut",
+    tagline: "Fresh citrus, bright, energetic",
+    notes: "Top: bergamot, lemon · Heart: neroli · Base: soft musk",
   },
   BULAN: {
     title: "Bulan",
-    tagline: "Floral lembut & powdery",
+    tagline: "Soft floral & powdery",
     notes: "Top: pear · Heart: jasmine, rose · Base: vanilla",
   },
   LANGIT: {
     title: "Langit",
-    tagline: "Fresh-aquatic, bersih & airy",
+    tagline: "Fresh-aquatic, clean & airy",
     notes: "Top: marine · Heart: lavender · Base: cedar",
   },
 };
@@ -117,7 +114,7 @@ export default function InvoiceComponent() {
   }, [id]);
 
   if (loading)
-    return <main className="p-8 text-neutral-600 text-center">Memuat…</main>;
+    return <main className="p-8 text-neutral-600 text-center">Loading…</main>;
   if (err)
     return (
       <main className="p-8 text-center text-sm md:text-lg text-red-600">
@@ -134,9 +131,9 @@ export default function InvoiceComponent() {
 
   // Mapping 3 status
   const steps = [
-    { key: "DIKEMAS", label: "Dikemas" },
-    { key: "DIKIRIM", label: "Dikirim" },
-    { key: "DITERIMA", label: "Diterima" },
+    { key: "DIKEMAS", label: "Packed" },
+    { key: "DIKIRIM", label: "Shipped" },
+    { key: "DITERIMA", label: "Delivered" },
   ];
   const timeBy = Object.fromEntries(
     (events || []).map((e) => [e.status, e.at])
@@ -162,7 +159,7 @@ export default function InvoiceComponent() {
           <div className="p-5 sm:p-8">
             {/* Heading */}
             <div className="mb-3">
-              <h2 className="font-medium text-sm text-gray-800">Proses</h2>
+              <h2 className="font-medium text-sm text-gray-800">Progress</h2>
             </div>
             {/* End Heading */}
 
@@ -170,7 +167,7 @@ export default function InvoiceComponent() {
             <div>
               {steps.map((s, idx) => {
                 const done = !!timeBy[s.key];
-                const at = timeBy[s.key] ? fmt(timeBy[s.key]) : "Menunggu …";
+                const at = timeBy[s.key] ? fmt(timeBy[s.key]) : "Pending …";
                 return (
                   <div key={s.key} className="group flex gap-x-3">
                     {/* Icon */}
@@ -223,14 +220,14 @@ export default function InvoiceComponent() {
               {/* Heading */}
               <div className="mb-3">
                 <h2 className="font-medium text-sm text-gray-800">
-                  Detail Penerima
+                  Recipient Details
                 </h2>
               </div>
               {/* End Heading */}
 
               {/* List */}
               <dl className="grid grid-cols-1 sm:grid-cols-2 sm:gap-y-2 gap-x-4">
-                <dt className="sm:py-0.5 text-sm text-gray-500">Nama</dt>
+                <dt className="sm:py-0.5 text-sm text-gray-500">Name</dt>
                 <dd className="pb-3 sm:py-0.5 text-sm text-gray-800">
                   {order?.customer_name || "-"}
                 </dd>
@@ -240,31 +237,31 @@ export default function InvoiceComponent() {
                   {order?.email}
                 </dd>
 
-                <dt className="sm:py-0.5 text-sm text-gray-500">Telepon</dt>
+                <dt className="sm:py-0.5 text-sm text-gray-500">Phone</dt>
                 <dd className="pb-3 sm:py-0.5 text-sm text-gray-800">
                   {order?.phone}
                 </dd>
 
-                <dt className="sm:py-0.5 text-sm text-gray-500">Nama Bank</dt>
+                <dt className="sm:py-0.5 text-sm text-gray-500">Bank Name</dt>
                 <dd className="pb-3 sm:py-0.5 text-sm text-gray-800">
                   {order?.bank_name || "-"}
                 </dd>
 
                 <dt className="sm:py-0.5 text-sm text-gray-500">
-                  Nomor Rekening
+                  Account Number
                 </dt>
                 <dd className="pb-3 sm:py-0.5 text-sm text-gray-800">
                   {order?.account_number || "-"}
                 </dd>
 
-                <dt className="sm:py-0.5 text-sm text-gray-500">No. Resi</dt>
+                <dt className="sm:py-0.5 text-sm text-gray-500">
+                  Tracking Number
+                </dt>
                 <dd className="pb-3 sm:py-0.5 text-sm text-gray-800">
                   {order?.tracking_number || "-"}
                 </dd>
 
-                <dt className="sm:py-0.5 text-sm text-gray-500">
-                  Tanggal Order
-                </dt>
+                <dt className="sm:py-0.5 text-sm text-gray-500">Order Date</dt>
                 <dd className="pb-3 sm:py-0.5 text-sm text-gray-800">
                   {fmt(order?.created_at)}
                 </dd>
@@ -281,12 +278,12 @@ export default function InvoiceComponent() {
             <div className="py-5 sm:py-8">
               <div className="mb-3">
                 <h2 className="font-medium text-sm text-gray-800">
-                  Rincian Pesanan
+                  Order Details
                 </h2>
               </div>
 
               {items.length === 0 ? (
-                <p className="text-sm text-gray-500">Tidak ada item.</p>
+                <p className="text-sm text-gray-500">No items.</p>
               ) : (
                 <>
                   {/* Mobile (scrollable slider) */}
@@ -355,7 +352,7 @@ export default function InvoiceComponent() {
                       </div>
                     </div>
                     <div className="text-xs text-gray-500 mt-2 px-2">
-                      Geser untuk melihat data →
+                      Swipe to view →
                     </div>
                   </div>
 
@@ -365,10 +362,10 @@ export default function InvoiceComponent() {
                       <table className="w-full text-sm">
                         <thead className="bg-gray-50 text-gray-600">
                           <tr>
-                            <th className="text-left px-4 py-2">Produk</th>
-                            <th className="text-left px-4 py-2">Varian</th>
+                            <th className="text-left px-4 py-2">Product</th>
+                            <th className="text-left px-4 py-2">Variant</th>
                             <th className="text-right px-4 py-2">Qty</th>
-                            <th className="text-right px-4 py-2">Harga</th>
+                            <th className="text-right px-4 py-2">Price</th>
                             <th className="text-right px-4 py-2">Subtotal</th>
                           </tr>
                         </thead>
@@ -380,7 +377,7 @@ export default function InvoiceComponent() {
                             return (
                               <tr key={it.id} className="text-gray-800">
                                 <td className="px-4 py-2">
-                                  {it.product_name || "Parfum IfSky"}
+                                  {it.product_name || "IFSKY Perfume"}
                                 </td>
                                 <td className="px-4 py-2">
                                   <span className="inline-flex items-center rounded-full border px-2 py-0.5 text-xs font-medium text-sky-700 border-sky-200 bg-sky-50">
@@ -418,7 +415,7 @@ export default function InvoiceComponent() {
               <div className="py-5 sm:py-8">
                 <div className="mb-3">
                   <h2 className="font-medium text-sm text-gray-800">
-                    Info Varian
+                    Variant Info
                   </h2>
                 </div>
                 <div className="space-y-3">
@@ -466,7 +463,7 @@ export default function InvoiceComponent() {
                 {/* Heading */}
                 <div className="mb-3">
                   <h2 className="font-medium text-sm text-gray-800">
-                    Detail Transaksi
+                    Transaction Details
                   </h2>
                 </div>
                 {/* End Heading */}

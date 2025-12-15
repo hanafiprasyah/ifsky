@@ -15,7 +15,7 @@ export default function FaqComponent() {
         <div className="md:ps-[15%] md:order-2">
           <div className="mb-8 ml-4">
             <h2 className="font-semibold text-xl md:text-3xl text-gray-800">
-              Pertanyaan yang Sering Ditanya (FAQ)
+              Frequently Asked Questions (FAQ)
             </h2>
           </div>
 
@@ -33,7 +33,7 @@ export default function FaqComponent() {
               >
                 <span className="grow">
                   <span className="block font-medium text-lg text-gray-800">
-                    Bagaimana cara melacak pesanan?
+                    Frequently Asked Questions (FAQ)
                   </span>
                 </span>
                 <svg
@@ -58,8 +58,8 @@ export default function FaqComponent() {
                 style={{ display: "block" }}
               >
                 <p className="mt-2 text-gray-500">
-                  Buka <b>Lacak Pesanan</b>, masukkan nomor pesanan dan email.
-                  Status real-time akan tampil.
+                  Open <b>Track Order</b>, enter your order number and email.
+                  Your real-time status will appear.
                 </p>
 
                 <ul className="mt-3 space-y-1">
@@ -79,7 +79,7 @@ export default function FaqComponent() {
                       >
                         <path d="m9 18 6-6-6-6" />
                       </svg>
-                      Dikemas
+                      Packed
                     </li>
 
                     <li className="flex items-center gap-x-1 text-gray-500">
@@ -97,7 +97,7 @@ export default function FaqComponent() {
                       >
                         <path d="m9 18 6-6-6-6" />
                       </svg>
-                      Dalam perjalanan
+                      In transit
                     </li>
 
                     <li className="flex items-center gap-x-1 text-gray-500">
@@ -115,7 +115,7 @@ export default function FaqComponent() {
                       >
                         <path d="m9 18 6-6-6-6" />
                       </svg>
-                      Diterima
+                      Delivered
                     </li>
                   </>
                 </ul>
@@ -125,7 +125,7 @@ export default function FaqComponent() {
                     className="group inline-flex justify-center transition-all duration-200 ease-in-out items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg text-blue-600 hover:text-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:text-blue-700"
                     href={"/track-order"}
                   >
-                    Lacak Pesanan
+                    Track Order
                     <svg
                       className="shrink-0 size-3.5"
                       xmlns="http://www.w3.org/2000/svg"
@@ -165,7 +165,7 @@ export default function FaqComponent() {
               >
                 <span className="grow">
                   <span className="block font-medium text-lg text-gray-800">
-                    Bagaimana memastikan parfum IFSKY asli?
+                    How do I verify that my IFSKY perfume is genuine?
                   </span>
                 </span>
                 <svg
@@ -190,20 +190,20 @@ export default function FaqComponent() {
                 style={{ display: "none" }}
               >
                 <p className="mt-2 text-gray-500">
-                  Semua produk IFSKY bergaransi keaslian. Cek segel, kemasan,
-                  dan batch code. Jika ragu, hubungi kami dengan foto produk &
-                  nota.
+                  All IFSKY products are guaranteed authentic. Check the seal,
+                  packaging, and batch code. If you're unsure, contact us with
+                  photos of the product and the receipt.
                 </p>
 
                 <div className="block mt-2">
                   <Link
                     className="group inline-flex justify-center transition-all duration-200 ease-in-out items-center gap-x-1.5 whitespace-nowrap text-[13px] md:text-sm rounded-lg text-blue-600 hover:text-blue-700 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:text-blue-700"
                     href={
-                      "https://wa.me/+6282364459298?text=Halo%20IFSKY!%20Saya%20ingin%20cek%20keaslian%20produk%20IFSKY%20yang%20saya%20beli.%20Bisa%20bantu?"
+                      "https://wa.me/+6282364459298?text=Hello%20IFSKY!%20I%20would%20like%20to%20verify%20the%20authenticity%20of%20an%20IFSKY%20product%20I%20purchased.%20Could%20you%20help%3F"
                     }
                     target="_blank"
                   >
-                    Hubungi kami
+                    Contact us
                     <svg
                       className="shrink-0 size-3.5"
                       xmlns="http://www.w3.org/2000/svg"
@@ -243,7 +243,7 @@ export default function FaqComponent() {
               >
                 <span className="grow">
                   <span className="block font-medium text-lg text-gray-800">
-                    Tips agar parfum lebih tahan lama?
+                    How can I make my perfume last longer?
                   </span>
                 </span>
                 <svg
@@ -268,9 +268,8 @@ export default function FaqComponent() {
                 style={{ display: "none" }}
               >
                 <p className="mt-2 text-gray-500">
-                  Semprot di titik nadi setelah mandi, jangan digosok, gunakan
-                  layering (body lotion netral), dan simpan di tempat
-                  sejuk/teduh.
+                  Spray on pulse points after a shower, avoid rubbing, layer
+                  with a neutral body lotion, and store in a cool, shaded place.
                 </p>
               </div>
             </div>
@@ -290,7 +289,7 @@ export default function FaqComponent() {
             <Image
               className="size-full object-cover rounded-xl"
               src={TrackOrderImage}
-              alt="IFSKY Lacak Pesanan"
+              alt="IFSKY Track Order"
               width="auto"
               height="auto"
             />
@@ -299,9 +298,9 @@ export default function FaqComponent() {
               <div className="p-4 md:p-6 relative z-10 flex flex-col justify-end gap-3">
                 <div className="mt-1.5 md:mt-3">
                   <blockquote className="md:text-xl text-white">
-                    Simpan selalu Nomor Resi anda dan jangan pernah membuang
-                    bukti pembelian/Invoice dari kami hingga barang diterima
-                    tanpa masalah ya!
+                    Always keep your tracking number, and do not discard your
+                    purchase receipt/invoice until your package arrives without
+                    issues!
                     <footer className="mt-4 md:mt-6 text-sm">
                       Admin, <span className="opacity-70">IFSKY Team</span>
                     </footer>
@@ -329,8 +328,8 @@ export default function FaqComponent() {
               <div className="p-4 md:p-6 relative z-10 flex flex-col justify-end gap-3">
                 <div className="mt-1.5 md:mt-3">
                   <blockquote className="md:text-xl text-white">
-                    Jika kerusakan terjadi selama proses pengiriman, maka kami
-                    akan 100% bertanggung jawab!*
+                    If damage occurs during shipping, we will take 100%
+                    responsibility!*
                     <footer className="mt-4 md:mt-6 text-sm">
                       Admin, <span className="opacity-70">IFSKY Team</span>
                     </footer>
@@ -358,8 +357,7 @@ export default function FaqComponent() {
               <div className="p-4 md:p-6 relative z-10 flex flex-col justify-end gap-3">
                 <div className="mt-1.5 md:mt-3">
                   <blockquote className="md:text-xl text-white">
-                    Usahakan agar parfum disemprot pada kulit, jangan di baju
-                    ya!
+                    For best performance, spray on skin, not on clothing!
                     <footer className="mt-4 md:mt-6 text-sm">
                       Admin, <span className="opacity-70">IFSKY Team</span>
                     </footer>

@@ -10,7 +10,7 @@ export const metadata = {
 export default function InvoicePage() {
   return (
     <Suspense
-      fallback={<div className="p-8 text-slate-500">Memuat invoice…</div>}
+      fallback={<div className="p-8 text-slate-500">Loading invoice…</div>}
     >
       <InvoiceComponent />
     </Suspense>
